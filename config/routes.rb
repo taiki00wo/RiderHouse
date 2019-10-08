@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
- resources :users
+  root to: 'riderhouses#index'
+  resources :riderhouses
+  resources :users
 end

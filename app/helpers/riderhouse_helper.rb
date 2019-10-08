@@ -1,0 +1,2 @@
+module RiderhouseHelper
+end

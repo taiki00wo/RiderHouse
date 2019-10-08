@@ -1,0 +1,2 @@
+class Riderhouse < ApplicationRecord
+end
