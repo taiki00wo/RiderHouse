@@ -7,4 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Riderhouse.create(:name => '漁師の家', :address => '北海道稚内市ノシャップ2丁目3-8', :tel => '0162-22-0303', :price => 2000, :opening_hours => '8:00～17:00')
+Riderhouse.create(:name => 'ライダーハウス 東京・世田谷 @貴庵', :address => '東京都世田谷区八幡山１丁目１８−２０', :tel => '012-92-0063', :price => 3000, :opening_hours => '8:00～18:00')
 

@@ -1,0 +1,29 @@
+<h1>Riderhouse#new</h1>
+<p>Find me in app/views/riderhouse/new.html.erb</p>
+
+<%= form_for @riderhouse do |f| %>
+
+  <div class="field">
+    <%= f.label :name, "名前" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, "住所" %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tel, "電話番号" %>
+    <%= f.text_field :tel %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, "価格" %>
+    <%= f.text_field :price %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "登録する" %>
+  </div>
+<% end %>
