@@ -10,6 +10,21 @@
   </head>
 
   <body>
+    <header>
+    <ul class="nav bg-info">
+      <li class="nav-item">
+        <%= link_to '一覧', riderhouses_path, class: 'nav-link text-white' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to '新規作成', new_riderhouse_path, class: 'nav-link text-white'%>
+      </li>
+    </ul>
+
+    <% if flash[:notice] %>
+      <div class="alert alert-success"><%= flash[:notice] %></div>
+    <% end %>
+    </header>
+
     <%= yield %>
   </body>
 </html>

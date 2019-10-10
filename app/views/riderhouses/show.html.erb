@@ -1,10 +1,27 @@
 <h1>Riderhouse#show</h1>
 <p>Find me in app/views/riderhouse/show.html.erb</p>
 
-
-名前<%= @riderhouse.name %>
-住所<%= @riderhouse.address %>
-電話番号<%= @riderhouse.tel %>
-価格<%= @riderhouse.price %>
-営業時間<%= @riderhouse.opening_hours %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>住所</th>
+      <th>電話番号</th>
+      <th>価格</th>
+      <th>営業時間</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><%= @riderhouse.name %></th>
+      <th><%= @riderhouse.address %></th>
+      <th><%= @riderhouse.tel %></th>
+      <th><%= @riderhouse.price %></th>
+      <th><%= @riderhouse.opening_hours %></th>
+    </tr>
+    <tr>
+      <th><%= link_to '編集', edit_riderhouse_path(@riderhouse), class: 'btn btn-primary' %></th>
+    </tr>
+  </tbody>
+</table>
 

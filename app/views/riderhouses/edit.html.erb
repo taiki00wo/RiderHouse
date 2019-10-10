@@ -1,2 +1,35 @@
 <h1>Riderhouses#edit</h1>
 <p>Find me in app/views/riderhouses/edit.html.erb</p>
+
+<%= form_with model: @riderhouse, local: true do |f| %>
+
+  <div class="field">
+    <%= f.label :name, "名称" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, "住所" %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tel, "電話番号" %>
+    <%= f.text_field :tel %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, "価格" %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :opening_hours, "営業時間" %>
+    <%= f.text_field :opening_hours %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "更新する", class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
