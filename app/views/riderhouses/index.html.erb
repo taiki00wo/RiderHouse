@@ -5,16 +5,16 @@
   <div class="row">
     <% @riderhouses.each do |r| %>
       <div class="col">
+        <div class="box">
+          <% if r.image? %>
+            <%= link_to image_tag(r.image.url, :size =>'240x180'), riderhouse_path(r) %><br>
+          <% end %>
 
-        <% if r.image? %>
-            <%= image_tag r.image.url %><br>
-        <% end %>
+          <%= link_to r.name, riderhouse_path(r) %><br>
 
-        <%= link_to r.name, riderhouse_path(r) %><br>
-
-        <%= link_to '編集', edit_riderhouse_path(r), class: 'btn btn-primary' %>
-        <%= link_to '削除', riderhouse_path(r), method: :delete, data: { confirm: "#{r.name}を削除してよろしいですか？" }, class: 'btn btn-danger' %>
-
+          <%= link_to '編集', edit_riderhouse_path(r), class: 'btn btn-primary' %>
+          <%= link_to '削除', riderhouse_path(r), method: :delete, data: { confirm: "#{r.name}を削除してよろしいですか？" }, class: 'btn btn-danger' %>
+        </div>
       </div>
      <% end %>
   </div>
