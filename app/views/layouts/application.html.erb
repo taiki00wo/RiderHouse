@@ -18,6 +18,12 @@
       <li class="nav-item">
         <%= link_to '新規作成', new_riderhouse_path, class: 'nav-link text-white'%>
       </li>
+      <li class="nav-item">
+        <%= link_to 'ログイン', new_user_session_path, class: 'nav-link text-white'%>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-white'%>
+      </li>
     </ul>
 
     <% if flash[:notice] %>
