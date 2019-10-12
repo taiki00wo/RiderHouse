@@ -9,6 +9,7 @@
       <th>電話番号</th>
       <th>価格</th>
       <th>営業時間</th>
+      <th>画像</th>
     </tr>
   </thead>
   <tbody>
@@ -18,9 +19,15 @@
       <th><%= @riderhouse.tel %></th>
       <th><%= @riderhouse.price %></th>
       <th><%= @riderhouse.opening_hours %></th>
+      <th>
+        <% if @riderhouse.image? %>
+          <%= image_tag @riderhouse.image.url %>
+        <% end %>
+      <th>
     </tr>
     <tr>
       <th><%= link_to '編集', edit_riderhouse_path(@riderhouse), class: 'btn btn-primary' %></th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>

@@ -29,6 +29,9 @@
       <%= f.label :opening_hours, "営業時間" %>
       <%= f.text_field :opening_hours, class: 'form-control' %>
     </div>
+
+    <%= f.label "画像をアップロード" %><br>
+    <%= f.file_field :image %><br>
     
     <%= f.submit "更新する", class: 'btn btn-primary' %>
 

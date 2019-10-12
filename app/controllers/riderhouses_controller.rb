@@ -50,6 +50,6 @@ class RiderhousesController < ApplicationController
   private
 
   def riderhouse_params
-    params.require(:riderhouse).permit(:name, :address, :tel, :price, :opening_hours)
+    params.require(:riderhouse).permit(:name, :address, :tel, :price, :opening_hours, :image)
   end
 end
