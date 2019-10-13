@@ -1,6 +1,7 @@
 class RiderhousesController < ApplicationController
   def index
     @riderhouses = Riderhouse.all
+    @riderhouses = Riderhouse.page(params[:page]).per(9)
   end
 
   def show
