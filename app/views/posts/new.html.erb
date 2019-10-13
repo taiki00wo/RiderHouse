@@ -1,0 +1,23 @@
+<h1>Posts#new</h1>
+<p>Find me in app/views/posts/new.html.erb</p>
+
+<div class="container">
+
+  <%= form_with model: @post, url: riderhouse_posts_path, method: :post, local: true do |f| %>
+
+    <div class="form-group">
+      <%= f.label :rating, "評価" %>
+      <%= f.select :rating, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]] %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :content, "口コミ" %>
+      <%= f.text_field :content, class: 'form-control' %>
+    </div>
+    
+    <%= f.submit "登録する", class: 'btn btn-primary' %>
+
+  <% end %>
+  
+</div>
+

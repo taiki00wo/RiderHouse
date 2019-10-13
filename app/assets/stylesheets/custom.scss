@@ -6,10 +6,19 @@ main {
   background-color:rgba(255,255,255,0.3);
   height: 100%;
 
-    .box {
+    .index-box {
       padding: 20px;
       margin-bottom: 10px;
     }
 
+    .riderhouse-show-table {
+      width: 600px;
+    
+
+      table {
+        background-color: white;
+      }
+
+  }
   }
 }

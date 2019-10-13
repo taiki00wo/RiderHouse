@@ -1,35 +1,68 @@
 <h1>Riderhouse#show</h1>
 <p>Find me in app/views/riderhouse/show.html.erb</p>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>名称</th>
-      <th>住所</th>
-      <th>電話番号</th>
-      <th>価格</th>
-      <th>営業時間</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th><%= @riderhouse.name %></th>
-      <th><%= @riderhouse.address %></th>
-      <th><%= @riderhouse.tel %></th>
-      <th><%= @riderhouse.price %></th>
-      <th><%= @riderhouse.opening_hours %></th>
-    </tr>
-    <tr>
-      <th><%= link_to '編集', edit_riderhouse_path(@riderhouse), class: 'btn btn-primary' %></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
 
-<% if @riderhouse.image? %>
-  <%= image_tag @riderhouse.image.url, :size =>'480x360' %>
-<% end %>
+      <% if @riderhouse.image? %>
+        <%= image_tag @riderhouse.image.url, :size =>'600x450' %>
+      <% end %>
+
+      <div class="table-responsive riderhouse-show-table">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>名称</th>
+              <th><%= @riderhouse.name %></th>
+            </tr>
+            <tr>
+              <th>住所</th>
+              <th><%= @riderhouse.address %></th>
+            <tr>
+            <tr>
+              <th>電話番号</th>
+              <th><%= @riderhouse.tel %></th>
+            </tr>
+            <tr>
+              <th>価格</th>
+              <th><%= @riderhouse.price %></th>
+            </tr>
+            <tr>
+              <th>営業時間</th>
+              <th><%= @riderhouse.opening_hours %></th>
+            </tr>
+            <tr>
+              <th><%= link_to '編集', edit_riderhouse_path(@riderhouse), class: 'btn btn-primary' %></th>
+              <th></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="col-lg-4">
+
+      <%# 口コミを表示 %>
+      <% @posts.each do |post| %>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>評価</th>
+              <th><%= post.rating %></th>
+            </tr>
+            <tr>
+              <th>口コミ</th>
+              <th><%= post.content %><th>
+            <tr>
+          </tbody>
+        </table>
+      <% end %>
+
+      <%= link_to '口コミを投稿する', new_riderhouse_post_path(@riderhouse), class: 'btn btn-primary' %>
+
+    </div>
+  </div>
+</div>
 
