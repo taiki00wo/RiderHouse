@@ -3,11 +3,11 @@
     <div class="col-lg-8">
 
       <% if @riderhouse.image? %>
-        <%= image_tag @riderhouse.image.url, :size =>'600x450' %>
+        <%= image_tag @riderhouse.image.url, :size =>'500x375' %>
       <% end %>
 
       <div class="table-responsive riderhouse-show-table">
-        <table class="table">
+        <table class="table bg-white">
           <tbody>
             <tr>
               <th>名称</th>
@@ -40,32 +40,31 @@
     </div>
 
     <div class="col-lg-4">
-
-      <%# 口コミを表示 %>
-      <% @posts.each do |post| %>
-        <table class="table">
-          <tbody>
-            <tr>
-              <% if post.user.image? %>
-                <th><%= image_tag post.user.image.url, :size =>'50x50', class: 'icon' %></th>
-              <% end %>
-              <th><%= post.user.name %></th>
-           
-            </tr>
-            <tr>
-              <th>評価</th>
-              <th><%= post.rating %></th>
-            </tr>
-            <tr>
-              <th>口コミ</th>
-              <th><%= post.content %><th>
-            <tr>
-          </tbody>
-        </table>
-      <% end %>
-
-      <%= link_to '口コミを投稿する', new_riderhouse_post_path(@riderhouse), class: 'btn btn-primary' %>
-
+      <div class="overflow-auto" style="height:680px;">
+        <%# 口コミを表示 %>
+        <% @posts.each do |post| %>
+          <table class="table bg-white">
+            <tbody>
+              <tr>
+                <% if post.user.image? %>
+                  <th><%= image_tag post.user.image.url, :size =>'50x50', class: 'rounded-circle' %></th>
+                <% end %>
+                <th><%= post.user.name %></th>
+            
+              </tr>
+              <tr>
+                <th>評価</th>
+                <th><%= post.rating %></th>
+              </tr>
+              <tr>
+                <th>口コミ</th>
+                <th><%= post.content %><th>
+              <tr>
+            </tbody>
+          </table>
+        <% end %>
+      </div> 
+      <%= link_to '口コミを投稿する', new_riderhouse_post_path(@riderhouse), class: 'btn btn-primary' %> 
     </div>
   </div>
 </div>

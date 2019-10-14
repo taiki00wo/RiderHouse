@@ -11,23 +11,35 @@
 
   <body>
     <header>
-    <ul class="nav bg-info">
-      <li class="nav-item">
-        <%= link_to '一覧', riderhouses_path, class: 'nav-link text-white' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to '新規作成', new_riderhouse_path, class: 'nav-link text-white'%>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'ログイン', new_user_session_path, class: 'nav-link text-white'%>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-white'%>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'ユーザー編集', edit_user_registration_path, class: 'nav-link text-white'%>
-      </li>
-    </ul>
+      <nav class="navbar navbar-expand-lg bg-info">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to '一覧', riderhouses_path, class: 'nav-link text-white' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '新規作成', new_riderhouse_path, class: 'nav-link text-white'%>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'ログイン', new_user_session_path, class: 'nav-link text-white'%>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-white'%>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <% if current_user.image.url %>    
+              <%= link_to image_tag(current_user.image.url, :size =>'50x50'), edit_user_registration_path, class: 'nav-link text-white rounded-circle'%>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <% if current_user %>
+              <%= link_to current_user.name, edit_user_registration_path, class: 'nav-link text-white'%>
+            <% end %>
+          </li>
+        </ul>
+       </nav>
 
     <% if flash[:notice] %>
       <div class="alert alert-success"><%= flash[:notice] %></div>
