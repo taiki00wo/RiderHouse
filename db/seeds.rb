@@ -11,6 +11,6 @@
 
 
 
-Post.create(rating: 3, content: 'とてもいい', user_id: 1, riderhouse_id: 2)
-Post.create(rating: 3, content: 'とてもいい', user_id: 1, riderhouse_id: 3)
+# Post.create(rating: 3, content: 'とてもいい', user_id: 1, riderhouse_id: 2)
+# Post.create(rating: 3, content: 'とてもいい', user_id: 1, riderhouse_id: 3)
 
