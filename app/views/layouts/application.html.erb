@@ -6,7 +6,10 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= include_gon %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -29,8 +32,11 @@
 
         <ul class="navbar-nav">
           <li class="nav-item">
-            <% if current_user.image.url %>    
+          <%# もし現在のユーザーに画像があれば、表示する。無ければ,デフォルト画像を表示 %>
+            <% if current_user.present? && current_user.image.url %>    
               <%= link_to image_tag(current_user.image.url, :size =>'50x50'), edit_user_registration_path, class: 'nav-link text-white rounded-circle'%>
+            <% elsif current_user.present? %>
+              <%= link_to image_tag('/images/default.png', :size =>'50x50'), edit_user_registration_path, class: 'nav-link text-white rounded-circle'%>
             <% end %>
           </li>
           <li class="nav-item">

@@ -1,11 +1,13 @@
 class RiderhousesController < ApplicationController
   def index
     @riderhouses = Riderhouse.all
+    gon.riderhouses = @riderhouses
     @riderhouses = Riderhouse.page(params[:page]).per(9)
   end
 
   def show
     @riderhouse = Riderhouse.find(params[:id])
+    gon.riderhouse = @riderhouse
     @posts = @riderhouse.posts
   end
 
