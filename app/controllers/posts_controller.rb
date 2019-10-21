@@ -1,11 +1,9 @@
 class PostsController < ApplicationController
   def new
-    logger.debug('newに入りました')
     @post = Post.new
   end
 
   def create
-    logger.debug('createに入りました')
     @post = Post.new(post_params)
     @post.riderhouse_id = params[:riderhouse_id]
     @post.user_id = current_user.id
@@ -21,7 +19,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    logger.degub('updateに入りました')
   end
 
   def destroy
