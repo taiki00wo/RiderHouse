@@ -88,15 +88,9 @@ function initMap(currentLocation){
           <%= link_to '削除', riderhouse_path(r), method: :delete, data: { confirm: "#{r.name}を削除してよろしいですか？" }, class: 'btn btn-danger' %>
 
           <%# いいね機能 %>
-          <% if favorite = r.favorites.find_by(user_id: current_user.id) %>
-            <%= link_to favorite_path(favorite), method: :delete do %>
-              <i class="material-icons">star</i>
-            <% end %>
-          <% else %>
-            <%= link_to riderhouse_favorites_path(r) do %>
-              <i class="material-icons">star_border</i>
-            <% end %>
-          <% end %>
+          <div id="favorite-<%= r.id %>">
+            <%= render partial: "favorites/favorite", locals: { r: r } %>
+          </div>
 
         </div>
       </div>

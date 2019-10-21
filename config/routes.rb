@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   # favorite
   resources :riderhouse do
-    resources :favorites, only: [:index, :create]
+    resources :favorites, only: [:create]
   end
-  resources :favorites, only: [:destroy]
+  resources :favorites, only: [:index, :destroy]
 end

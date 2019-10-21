@@ -1,0 +1,11 @@
+<%# お気に入り削除 %>
+<% if favorite = r.favorites.find_by(user_id: current_user.id) %>
+  <%= link_to favorite_path(favorite), method: :delete, remote: true do %>
+    <i class="fas fa-star fa-2x text-warning"></i>
+  <% end %>
+<%# お気に入り登録 %>
+<% else %>
+  <%= link_to riderhouse_favorites_path(r), method: :post, remote: true do %>
+    <i class="far fa-star fa-2x text-warning"></i>
+  <% end %>
+<% end %>
