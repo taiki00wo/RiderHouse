@@ -1,6 +1,9 @@
 class FavoritesController < ApplicationController
   
   def index
+    @riderhouses = current_user.riderhouses
+    gon.riderhouses = @riderhouses
+    @riderhouses = @riderhouses.page(params[:page]).per(6)
   end
 
   def create

@@ -1,5 +1,6 @@
 <%# google map表示 %>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAj8jAe57XI_VqQVoaeeiNtiBavB3TtDY&callback=initMap" async defer></script>
+<%# <script src="https://maps.googleapis.com/maps/api/js?key=" + gon.API_KEY + "&callback=initMap" async defer></script> %>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACxoqziekK1bHJ_a7Rvpxon8qeb4XBnMY&callback=initMap" async defer></script>
 
 <button onclick="getCurrentLocation()">現在地を取得する</button>
 <div id='map' style="height:500px;"></div>
@@ -84,8 +85,15 @@ function initMap(currentLocation){
           <% end %>
           <%= link_to r.name, riderhouse_path(r) %><br>
 
-          <%= link_to '編集', edit_riderhouse_path(r), class: 'btn btn-primary' %>
-          <%= link_to '削除', riderhouse_path(r), method: :delete, data: { confirm: "#{r.name}を削除してよろしいですか？" }, class: 'btn btn-danger' %>
+          <div class="text-white">
+            <%= "口コミ#{r.posts.count}件" %>
+          </div>
+          <%= Post.new.rating_average(r) %>
+
+          <% if r.user_id == current_user.id %>
+            <%= link_to '編集', edit_riderhouse_path(r), class: 'btn btn-primary' %>
+            <%= link_to '削除', riderhouse_path(r), method: :delete, data: { confirm: "#{r.name}を削除してよろしいですか？" }, class: 'btn btn-danger' %>
+          <% end %>
 
           <%# いいね機能 %>
           <div id="favorite-<%= r.id %>">

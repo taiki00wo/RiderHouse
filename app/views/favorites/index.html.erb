@@ -1,2 +1,109 @@
-<h1>Favorites#index</h1>
-<p>Find me in app/views/favorites/index.html.erb</p>
+<%# google map表示 %>
+<%# <script src="https://maps.googleapis.com/maps/api/js?key=" + gon.API_KEY + "&callback=initMap" async defer></script> %>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACxoqziekK1bHJ_a7Rvpxon8qeb4XBnMY&callback=initMap" async defer></script>
+
+<button onclick="getCurrentLocation()">現在地を取得する</button>
+<div id='map' style="height:500px;"></div>
+
+<script>
+//現在地の取得
+function getCurrentLocation() {
+  // getCurrentPosition:現在地の取得
+  navigator.geolocation.getCurrentPosition(setCurrentLocation);
+}
+
+//initMapに現在地の位置情報を渡す
+//position:位置情報
+function setCurrentLocation(position) {
+  var currentLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
+  initMap(currentLocation);
+}
+
+function initMap(currentLocation){
+
+  var marker = [];
+  var infoWindow = [];
+
+  if (currentLocation) {
+    //現在の緯度と経度をcenter
+    var center = { lat: currentLocation.lat, lng: currentLocation.lng };
+  } else {
+    //デフォルトの位置情報
+    var center = { lat: 35, lng: 136 };
+  }
+
+  //現在地を取得すると地図を拡大
+  if (currentLocation) {
+    var zoom = 10;
+  } else {
+    var zoom = 6;
+  }
+
+  let map = new google.maps.Map(document.getElementById('map'), {
+  center: center, //地図の中心点
+  zoom: zoom //地図の拡大・縮小
+  });
+
+  for (var i = 0; i < gon.riderhouses.length; i++ ) {
+    
+    // マーカーの追加
+    marker[i] = new google.maps.Marker({ 
+      // マーカーを立てる位置を指定
+      position: {lat: gon.riderhouses[i].latitude, lng: gon.riderhouses[i].longitude}, 
+      // マーカーを立てる地図を指定
+      map: map 
+    });
+
+    // 吹き出しの追加
+    infoWindow[i] = new google.maps.InfoWindow({ 
+      // 吹き出しに表示する内容
+      content: `<div class="map">${gon.riderhouses[i].name}</div>` 
+    });
+
+    markerEvent(i);
+  }
+
+  function markerEvent(i) {  
+    // マーカーをクリックしたとき
+    marker[i].addListener('click', function() { 
+      // 吹き出しの表示
+      infoWindow[i].open(map, marker[i]); 
+    });
+  }
+
+}
+</script>
+
+<%# ライダーハウス一覧の表示 %>
+<div class="container">
+  <div class="row">
+    <% logger.debug('一覧') %>
+    <% logger.debug @riderhouses %>
+    <% @riderhouses.each do |r| %>
+    <% logger.debug r.name %>
+      <div class="col-xs-6 col-lg-4">
+        <div class="index-box">
+          <% if r.image? %>
+            <%= link_to image_tag(r.image.url, :size =>'240x180'), riderhouse_path(r) %><br>
+          <% end %>
+          <%= link_to r.name, riderhouse_path(r) %><br>
+
+          <%= "口コミ#{r.posts.count}件" %>
+          <%= rating_average(r) %>
+
+          <%= link_to '編集', edit_riderhouse_path(r), class: 'btn btn-primary' %>
+          <%= link_to '削除', riderhouse_path(r), method: :delete, data: { confirm: "#{r.name}を削除してよろしいですか？" }, class: 'btn btn-danger' %>
+
+          <%# いいね機能 %>
+          <div id="favorite-<%= r.id %>">
+            <%= render partial: "favorites/favorite", locals: { r: r } %>
+          </div>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%# ページネーション %>
+<%= paginate @riderhouses %>

@@ -6,6 +6,8 @@ class User < ApplicationRecord
          
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :riderhouses, dependent: :destroy
+  has_many :riderhouses, through: :favorites
 
   mount_uploader :image, ImageUploader
 end

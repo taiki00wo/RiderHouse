@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -55,17 +56,27 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap'
 
+#ユーザー管理
 gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
+#画像アップロード
 gem 'carrierwave'
 
 gem 'mini_magick'
 
+#ページネーション
 gem 'kaminari'
 
-gem 'devise-i18n'
-gem 'devise-i18n-views'
-
+#住所から緯度・経度を取得
 gem 'geocoder'
 
+#rubyの変数をjavascriptに渡す
 gem 'gon'
+
+#テスト
+gem 'rspec-rails'
+
+#環境変数を扱う
+gem 'dotenv-rails'

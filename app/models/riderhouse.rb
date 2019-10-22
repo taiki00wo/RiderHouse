@@ -3,6 +3,8 @@ class Riderhouse < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  belongs_to :user, dependent: :destroy
+
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
 

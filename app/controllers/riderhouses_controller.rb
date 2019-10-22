@@ -2,7 +2,9 @@ class RiderhousesController < ApplicationController
   def index
     @riderhouses = Riderhouse.all
     gon.riderhouses = @riderhouses
-    @riderhouses = Riderhouse.page(params[:page]).per(9)
+    # gon.API_KEY:string
+    # gon.API_KEY = ENV["API_KEY"] 
+    @riderhouses = Riderhouse.page(params[:page]).per(6)
   end
 
   def show
@@ -19,6 +21,7 @@ class RiderhousesController < ApplicationController
   def create
     # logger.debug ("createに入りました")
     @riderhouse = Riderhouse.new(riderhouse_params)
+    @riderhouse.user_id = current_user.id
     if @riderhouse.save
       flash[:notice] = "ライダーハウス：#{@riderhouse.name}を登録しました。"
       redirect_to @riderhouse
