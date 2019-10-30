@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @post.riderhouse_id = params[:riderhouse_id]
     @post.user_id = current_user.id
     if @post.save!
-      flash[:notice] = "口コミを登録しました。"
+      flash[:notice] = '口コミを登録しました。'
       redirect_to riderhouses_url
     else 
       render 'new'
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   def edit
   end
 
-  def update
+  def update 
   end
 
   def destroy

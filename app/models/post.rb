@@ -2,6 +2,9 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :riderhouse
 
+  validates :rating, presence: true
+  validates :content, presence: true
+
   # ライダーハウスのratingの平均
   def rating_average(riderhouse)
     rating_sum = 0

@@ -2,8 +2,7 @@ class RiderhousesController < ApplicationController
   def index
     @riderhouses = Riderhouse.all
     gon.riderhouses = @riderhouses
-    # gon.API_KEY:string
-    # gon.API_KEY = ENV["API_KEY"] 
+    gon.API_KEY = ENV['API_KEY']
     @riderhouses = Riderhouse.page(params[:page]).per(6)
   end
 
@@ -14,18 +13,16 @@ class RiderhousesController < ApplicationController
   end
 
   def new
-    # logger.debug ("newに入りました")
     @riderhouse = Riderhouse.new
   end
 
   def create
-    # logger.debug ("createに入りました")
     @riderhouse = Riderhouse.new(riderhouse_params)
     @riderhouse.user_id = current_user.id
     if @riderhouse.save
       flash[:notice] = "ライダーハウス：#{@riderhouse.name}を登録しました。"
       redirect_to @riderhouse
-    else 
+    else
       render 'new'
     end
   end
@@ -39,7 +36,7 @@ class RiderhousesController < ApplicationController
     if @riderhouse.update(riderhouse_params)
       flash[:notice] = "ライダーハウス：#{@riderhouse.name}を更新しました。"
       redirect_to @riderhouse
-    else 
+    else
       render 'edit'
     end
   end
@@ -49,7 +46,7 @@ class RiderhousesController < ApplicationController
     if @riderhouse.destroy
       flash[:notice] = "ライダーハウス：#{@riderhouse.name}を削除しました。"
       redirect_to riderhouses_url
-    else 
+    else
       render 'edit'
     end
   end

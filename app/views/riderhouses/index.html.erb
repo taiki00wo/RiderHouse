@@ -1,13 +1,21 @@
+<%# OpenWeatherMap表示 %>
+<div id="weather"></div>
+
 <%# google map表示 %>
-<%# <script src="https://maps.googleapis.com/maps/api/js?key=" + gon.API_KEY + "&callback=initMap" async defer></script> %>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACxoqziekK1bHJ_a7Rvpxon8qeb4XBnMY&callback=initMap" async defer></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACxoqziekK1bHJ_a7Rvpxon8qeb4XBnMY&callback=initMap" async defer></script>
 
-<button onclick="getCurrentLocation()">現在地を取得する</button>
+<%# <button onclick="getCurrentLocation()">現在地を取得する</button> %>
 <div id='map' style="height:500px;"></div>
 
 <script>
+document.addEventListener('turbolinks:load', function(){
+  getCurrentLocation()
+});
 //現在地の取得
 function getCurrentLocation() {
+
+  console.log(gon.API_KEY);
   // getCurrentPosition:現在地の取得
   navigator.geolocation.getCurrentPosition(setCurrentLocation);
 }
@@ -70,7 +78,6 @@ function initMap(currentLocation){
       infoWindow[i].open(map, marker[i]); 
     });
   }
-
 }
 </script>
 
@@ -78,7 +85,7 @@ function initMap(currentLocation){
 <div class="container">
   <div class="row">
     <% @riderhouses.each do |r| %>
-      <div class="col-xs-6 col-lg-4">
+      <div class="col-xs-2 col-lg-3">
         <div class="index-box">
           <% if r.image? %>
             <%= link_to image_tag(r.image.url, :size =>'240x180'), riderhouse_path(r) %><br>
