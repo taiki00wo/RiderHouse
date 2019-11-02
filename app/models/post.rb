@@ -12,7 +12,7 @@ class Post < ApplicationRecord
       rating_sum += post.rating
     end
     if riderhouse.posts.count == 0
-      return "評価なし"
+      return '評価なし'
     else
       return "評価：#{rating_sum / riderhouse.posts.count.to_f}"
     end

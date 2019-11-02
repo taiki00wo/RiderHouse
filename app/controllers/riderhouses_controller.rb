@@ -2,12 +2,14 @@ class RiderhousesController < ApplicationController
   def index
     @riderhouses = Riderhouse.all
     gon.riderhouses = @riderhouses
-    gon.API_KEY = ENV['API_KEY']
-    @riderhouses = Riderhouse.page(params[:page]).per(6)
+    @API_KEY_map = ENV['API_KEY_map']
+    gon.API_KEY_weather = ENV['API_KEY_weather']
+    @riderhouses = Riderhouse.page(params[:page]).per(8)
   end
 
   def show
     @riderhouse = Riderhouse.find(params[:id])
+    @API_KEY_map = ENV['API_KEY_map']
     gon.riderhouse = @riderhouse
     @posts = @riderhouse.posts
   end

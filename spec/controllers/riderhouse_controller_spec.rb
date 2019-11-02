@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe RiderhousesController, type: :controller do
   describe '#index' do
-    context "ログイン済みのユーザーとして" do
+    context 'ログイン済みのユーザーとして' do
       before do
         @user = FactoryBot.create(:user)
       end
@@ -16,25 +16,25 @@ RSpec.describe RiderhousesController, type: :controller do
       it '200レスポンスを返すこと' do
         sign_in @user
         get :index
-        expect(response).to have_http_status "200"
+        expect(response).to have_http_status '200'
       end
     end
 
-    context "ログインしていないユーザーとして" do
+    context 'ログインしていないユーザーとして' do
       it '302レスポンスを返すこと' do
         get :index
-        expect(response).to have_http_status "302"
+        expect(response).to have_http_status '302'
       end
 
-      it "サインイン画面にリダイレクトすること" do
+      it 'サインイン画面にリダイレクトすること' do
         get :index
-        expect(response).to redirect_to "/users/sign_in"
+        expect(response).to redirect_to '/users/sign_in'
       end
     end
   end
 
-  describe "#show" do
-    context "ログイン済みのユーザーとして" do
+  describe '#show' do
+    context 'ログイン済みのユーザーとして' do
       before do
         @user = FactoryBot.create(:user)
         @riderhouse = FactoryBot.create(:riderhouse, user: @user)
@@ -45,11 +45,11 @@ RSpec.describe RiderhousesController, type: :controller do
         get :show, params: { id: @riderhouse.id }
         expect(response).to be_successful
       end
-    end 
+    end
   end
 
-  describe "#create" do
-    context "ログイン済みのユーザーとして" do
+  describe '#create' do
+    context 'ログイン済みのユーザーとして' do
       before do
         @user = FactoryBot.create(:user)
       end
@@ -57,15 +57,15 @@ RSpec.describe RiderhousesController, type: :controller do
       it 'ライダーハウスを追加できること' do
         riderhouse_params = FactoryBot.attributes_for(:riderhouse)
         sign_in @user
-        expect { 
+        expect do
           post :create, params: { riderhouse: riderhouse_params }
-        }.to change(Riderhouse, :count).by(1)
+        end.to change(Riderhouse, :count).by(1)
       end
-    end 
+    end
   end
 
-  describe "#update" do
-    context "ログイン済みのユーザーとして" do
+  describe '#update' do
+    context 'ログイン済みのユーザーとして' do
       before do
         @user = FactoryBot.create(:user)
         @riderhouse = FactoryBot.create(:riderhouse, user: @user)
@@ -73,16 +73,16 @@ RSpec.describe RiderhousesController, type: :controller do
 
       it 'ライダーハウスを更新できること' do
         riderhouse_params = FactoryBot.attributes_for(:riderhouse,
-        name: "New Riderhouse Name")
+                                                      name: 'New Riderhouse Name')
         sign_in @user
         patch :update, params: { id: @riderhouse.id, riderhouse: riderhouse_params }
-        expect(@riderhouse.reload.name).to eq "New Riderhouse Name"
+        expect(@riderhouse.reload.name).to eq 'New Riderhouse Name'
       end
-    end 
+    end
   end
 
-  describe "#destroy" do
-    context "ログイン済みのユーザーとして" do
+  describe '#destroy' do
+    context 'ログイン済みのユーザーとして' do
       before do
         @user = FactoryBot.create(:user)
         @riderhouse = FactoryBot.create(:riderhouse, user: @user)
@@ -90,10 +90,10 @@ RSpec.describe RiderhousesController, type: :controller do
 
       it 'ライダーハウスを削除できること' do
         sign_in @user
-        expect { 
+        expect do
           delete :destroy, params: { id: @riderhouse.id }
-        }.to change(Riderhouse, :count).by(-1)
+        end.to change(Riderhouse, :count).by(-1)
       end
-    end 
+    end
   end
 end

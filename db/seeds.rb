@@ -6,11 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Riderhouse.create(:name => '漁師の家', :address => '北海道稚内市ノシャップ2丁目3-8', :tel => '0162-22-0303', :price => 2000, :opening_hours => '8:00～17:00', image: 'ダウンロード.jpeg')
-# Riderhouse.create(:name => 'ライダーハウス 東京・世田谷 @貴庵', :address => '東京都世田谷区八幡山１丁目１８−２０', :tel => '012-92-0063', :price => 3000, :opening_hours => '8:00～18:00', image: 'ダウンロード.jpeg')
+3.times do |i|
+user = "user_#{i}"
+user = User.create!(name: "test#{i}", email: "test#{i}@email.com", password: 'password', 
+image: open("#{Rails.root}/db/images/user_default.jpeg"))
+end
 
+10.times do |i|
+riderhouse = "riderhouse_#{i}"
+riderhouse = Riderhouse.create!(name: "riderhouse#{i}", address: '東京都品川区南大井', 
+tel: '0000-11-2222', price: 2000, opening_hours: '7:00~18:00', 
+image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
+user: user_1)
+end
 
-
-# Post.create(rating: 3, content: 'とてもいい', user_id: 1, riderhouse_id: 2)
-# Post.create(rating: 3, content: 'とてもいい', user_id: 1, riderhouse_id: 3)
-
+3.times do |i|
+Post.create!(rating: 5, content: "とてもいい", user: user_1, riderhouse: riderhouse_1)
+end

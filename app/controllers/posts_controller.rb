@@ -10,19 +10,16 @@ class PostsController < ApplicationController
     if @post.save!
       flash[:notice] = '口コミを登録しました。'
       redirect_to riderhouses_url
-    else 
+    else
       render 'new'
     end
   end
 
-  def edit
-  end
+  def edit; end
 
-  def update 
-  end
+  def update; end
 
-  def destroy
-  end
+  def destroy; end
 
   private
 

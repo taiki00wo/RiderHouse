@@ -3,7 +3,7 @@ class RemoveColumnUsers < ActiveRecord::Migration[6.0]
     remove_column :users, :interger, :string
   end
 
-  def down 
+  def down
     add_column :users, :interger, :string
   end
 end
