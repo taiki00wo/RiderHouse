@@ -1,7 +1,6 @@
 $(document).on('turbolinks:load', function() {
-  var API_KEY = gon.API_KEY_weather;//envに格納
   var city = 'Tokyo'; //現在地の緯度・経度に変更
-  var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&units=metric&APPID=' + API_KEY;
+  var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&units=metric&APPID=' + gon.API_KEY_weather;
   $.ajax({
     url: url,
     dataType: "json",

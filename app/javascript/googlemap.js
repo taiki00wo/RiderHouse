@@ -4,8 +4,6 @@ document.addEventListener('turbolinks:load', function(){
 //現在地の取得
 function getCurrentLocation() {
 
-  console.log(gon.API_KEY_map);
-  console.log(gon.API_KEY_weather);
   // getCurrentPosition:現在地の取得
   navigator.geolocation.getCurrentPosition(setCurrentLocation);
 }

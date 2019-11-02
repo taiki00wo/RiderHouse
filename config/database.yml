@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: RiderHouse_production
-  username: RiderHouse
+  username: <%= ENV['RIDERHOUSE_DATABASE_USERNAME'] %>
   password: <%= ENV['RIDERHOUSE_DATABASE_PASSWORD'] %>

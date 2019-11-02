@@ -6,20 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-3.times do |i|
-user = "user_#{i}"
-user = User.create!(name: "test#{i}", email: "test#{i}@email.com", password: 'password', 
+User.create!(name: "test1", email: "test1@email.com", password: 'password', 
 image: open("#{Rails.root}/db/images/user_default.jpeg"))
-end
 
 10.times do |i|
-riderhouse = "riderhouse_#{i}"
-riderhouse = Riderhouse.create!(name: "riderhouse#{i}", address: '東京都品川区南大井', 
+Riderhouse.create!(name: "riderhouse#{i}", address: '東京都品川区南大井', 
 tel: '0000-11-2222', price: 2000, opening_hours: '7:00~18:00', 
 image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
-user: user_1)
+user_id: 1)
 end
 
 3.times do |i|
-Post.create!(rating: 5, content: "とてもいい", user: user_1, riderhouse: riderhouse_1)
+Post.create!(rating: 5, content: "とてもいい", user_id: 1, riderhouse_id: 1)
 end
