@@ -1,12 +1,14 @@
 $(document).on('turbolinks:load', function() {
   var city = 'Tokyo'; //現在地の緯度・経度に変更
-  var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&units=metric&APPID=' + gon.API_KEY_weather;
+  var url = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&units=metric&APPID=' + gon.API_KEY_weather;
   $.ajax({
     url: url,
     dataType: "json",
     type: 'GET',
   })
   .done(function(data) {
+    console.log(data);
+    console.log(url);
     var insertHTML = "";
     var cityName = '<h2>' + data.city.name + '</h2>';
     $('#city-name').html(cityName);
