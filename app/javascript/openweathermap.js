@@ -16,6 +16,8 @@ $(document).on('turbolinks:load', function() {
     $('#weather').html(insertHTML);
   })
   .fail(function(data) {
+    console.log(data);
+    console.log(url);
     console.log(gon.API_KEY_weather);
     console.log('取得に失敗しました');
   });
