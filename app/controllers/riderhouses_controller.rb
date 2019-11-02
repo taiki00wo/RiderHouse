@@ -4,7 +4,6 @@ class RiderhousesController < ApplicationController
     gon.riderhouses = @riderhouses
     @API_KEY_map = ENV['API_KEY_map']
     gon.API_KEY_weather = ENV['API_KEY_weather']
-    byebug
     @riderhouses = Riderhouse.page(params[:page]).per(8)
   end
 
