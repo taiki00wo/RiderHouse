@@ -1,6 +1,12 @@
 document.addEventListener('turbolinks:load', function(){
-  getCurrentLocation()
-  console.log("aaa");
+  if (navigator.geolocation) {
+    //Geolocation APIを利用できる環境向けの処理
+    getCurrentLocation()
+  } else {
+    //Geolocation APIを利用できない環境向けの処理
+    var currentLocation = { lat: 35.681139, lng: 139.770051 };
+    initMap(currentLocation);
+  }
 });
 
 //現在地の取得

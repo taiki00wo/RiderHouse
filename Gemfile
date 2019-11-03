@@ -66,8 +66,6 @@ gem 'devise-i18n-views'
 # 画像アップロード
 gem 'carrierwave'
 
-gem 'mini_magick'
-
 # ページネーション
 gem 'kaminari'
 
