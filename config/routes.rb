@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :riderhouses
   resources :users
+  
+  post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
 
   # post
   resources :riderhouse do
