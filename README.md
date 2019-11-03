@@ -1,24 +1,33 @@
-# README
+#ReadMe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#アプリケーションの概要
+ライダーハウスの口コミをみんなで共有するサイトです。
+バイクが好きなので、webアプリのテーマとして選びました。
 
-Things you may want to cover:
+#使用した技術
+Ruby 2.6.4
+Rails 6.0.0
 
-* Ruby version
+rspec+capybarafactory_bot_rails
 
-* System dependencies
+bootstrap
+devise
+carrierwave
+kaminari
+geocoder
+gon
+dotenv-rails
+rubocop-rails
 
-* Configuration
+＃実装した機能
+・ユーザー
+  新規登録、編集、ログイン、ログアウト
+・ライダーハウス
+  一覧表示、新規登録、編集、詳細表示、削除
+・口コミ
+  投稿
+・お気に入り
+  一覧表示、登録、登録解除
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+・API
+  googlemap, openweathermap
