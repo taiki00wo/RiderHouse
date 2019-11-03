@@ -1,7 +1,7 @@
 document.addEventListener('turbolinks:load', function(){
   if (navigator.geolocation) {
     //Geolocation APIを利用できる環境向けの処理
-    getCurrentLocation()
+    getCurrentLocation();
   } else {
     //Geolocation APIを利用できない環境向けの処理
     var currentLocation = { lat: 35.681139, lng: 139.770051 };
