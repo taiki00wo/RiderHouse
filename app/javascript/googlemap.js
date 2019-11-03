@@ -1,22 +1,20 @@
 document.addEventListener('turbolinks:load', function(){
-  if (navigator.geolocation) {
-    //Geolocation APIを利用できる環境向けの処理
-    getCurrentLocation();
-  } else {
-    //Geolocation APIを利用できない環境向けの処理
-    var currentLocation = { lat: 35.681139, lng: 139.770051 };
-    initMap(currentLocation);
-  }
+  getCurrentLocation();
 });
 
 //現在地の取得
 function getCurrentLocation() {
-  navigator.geolocation.getCurrentPosition(setCurrentLocation);
+  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 }
 
 //initMapに現在地の位置情報を渡す
-function setCurrentLocation(position) {
+function successCallback(position) {
   var currentLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
+  initMap(currentLocation);
+}
+
+function errorCallback(error) {
+  var currentLocation = { lat: 35.678877, lng: 139.770320 };
   initMap(currentLocation);
 }
 
