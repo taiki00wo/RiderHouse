@@ -1,20 +1,23 @@
 main {
-  background-image: image-url("background_image.jpg");
-  background-size: cover;
 
-  .bg-mask{
-  background-color:rgba(255,255,255,0.3);
-  height: 100%;
-
-    .index-box {
-      padding: 20px;
-      margin-bottom: 10px;
-      border: solid 1px #ff00ff;
-    }
-
-    .riderhouse-show-table {
-      width: 500px;
+  .login {
+    background-image: image-url("background_image.jpg");
+    background-size: cover;
+    
+    .bg-mask{
+    background-color:rgba(255,255,255,0.3);
+    height: 100%;
     }
   }
-}
 
+  .index-box {
+    width: 240px;
+    height: 330px;
+    margin-bottom: 10px;
+    border-bottom: solid 1px #c0c0c0;
+  }
+
+  .riderhouse-show-table {
+    width: 500px;
+  }
+}

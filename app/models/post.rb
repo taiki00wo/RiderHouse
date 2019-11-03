@@ -14,7 +14,8 @@ class Post < ApplicationRecord
     if riderhouse.posts.count == 0
       return '評価なし'
     else
-      return "評価：#{rating_sum / riderhouse.posts.count.to_f}"
+      rating_average = rating_sum / riderhouse.posts.count.to_f
+      return "評価：#{BigDecimal(rating_average.to_s).floor(2).to_f}"
     end
   end
 end

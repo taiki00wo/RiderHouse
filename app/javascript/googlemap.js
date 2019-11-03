@@ -1,22 +1,19 @@
 document.addEventListener('turbolinks:load', function(){
   getCurrentLocation()
 });
+
 //現在地の取得
 function getCurrentLocation() {
-
-  // getCurrentPosition:現在地の取得
   navigator.geolocation.getCurrentPosition(setCurrentLocation);
 }
 
 //initMapに現在地の位置情報を渡す
-//position:位置情報
 function setCurrentLocation(position) {
   var currentLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
   initMap(currentLocation);
 }
 
 function initMap(currentLocation){
-
   var marker = [];
   var infoWindow = [];
 
