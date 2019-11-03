@@ -1,7 +1,7 @@
 main {
 
   .riderhouse-bg {
-    background: image-url("riderhouse_bg_img.jpg");
+    background-image: image-url('riderhouse_bg_img.jpg');
     background-size: cover;
     
     .bg-mask {
@@ -11,7 +11,7 @@ main {
   }
 
   .user-bg {
-    background: image-url("user_bg_img.jpg");
+    background-image: image-url("user_bg_img.jpg");
     background-size: cover;
     
     .bg-mask {
@@ -21,7 +21,7 @@ main {
   }
 
   .favorite-bg {
-    background: image-url("favorite_bg_img.jpg");
+    background-image: image-url("favorite_bg_img.jpg");
     background-size: cover;
     
     .bg-mask {
