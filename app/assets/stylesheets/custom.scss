@@ -20,6 +20,16 @@ main {
     }
   }
 
+  .favorite-bg {
+    background-image: image-url("favorite_bg_img.jpg");
+    background-size: cover;
+    
+    .bg-mask {
+    background-color:rgba(255,255,255,0.3);
+    height: 100%;
+    }
+  }
+
   .index-box {
     width: 240px;
     height: 330px;

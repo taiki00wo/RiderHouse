@@ -5,14 +5,14 @@
   <div id="weather"></div>
 
   <%# google map表示 %>
-  <script id="googlemap" src="https://maps.googleapis.com/maps/api/js?key=<%=@API_KEY_map%>&callback=initMap" async defer></script>
+  <script id="googlemap" src="https://maps.googleapis.com/maps/api/js?key=<%=@API_KEY_map%>" async defer></script>
   <div id='map' style="height:500px;"></div>
 
   <%# ライダーハウス一覧の表示 %>
   <div class="container">
     <div class="row">
       <% @riderhouses.each do |r| %>
-        <div class="col-xs-6 col-lg-3">
+        <div class="col-sm-6 col-lg-3">
           <div class="index-box">
             <% if r.image? %>
               <%= link_to image_tag(r.image.url, :size =>'240x180'), riderhouse_path(r) %><br>

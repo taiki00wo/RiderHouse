@@ -1,5 +1,6 @@
 document.addEventListener('turbolinks:load', function(){
   getCurrentLocation()
+  console.log("aaa");
 });
 
 //現在地の取得
