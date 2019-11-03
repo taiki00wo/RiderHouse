@@ -1,42 +1,46 @@
-<%# OpenWeatherMap表示 %>
-<div id="city-name"></div>
-<div id="weather"></div>
+<div class='riderhouse-bg'>
+  <div class='bg-mask'>
+  <%# OpenWeatherMap表示 %>
+  <div id="city-name"></div>
+  <div id="weather"></div>
 
-<%# google map表示 %>
-<script id="googlemap" src="https://maps.googleapis.com/maps/api/js?key=<%=@API_KEY_map%>&callback=initMap" async defer></script>
-<div id='map' style="height:500px;"></div>
+  <%# google map表示 %>
+  <script id="googlemap" src="https://maps.googleapis.com/maps/api/js?key=<%=@API_KEY_map%>&callback=initMap" async defer></script>
+  <div id='map' style="height:500px;"></div>
 
-<%# ライダーハウス一覧の表示 %>
-<div class="container">
-  <div class="row">
-    <% @riderhouses.each do |r| %>
-      <div class="col-xs-6 col-lg-3">
-        <div class="index-box">
-          <% if r.image? %>
-            <%= link_to image_tag(r.image.url, :size =>'240x180'), riderhouse_path(r) %><br>
-          <% end %>
-          <%= link_to r.name, riderhouse_path(r) %><br>
+  <%# ライダーハウス一覧の表示 %>
+  <div class="container">
+    <div class="row">
+      <% @riderhouses.each do |r| %>
+        <div class="col-xs-6 col-lg-3">
+          <div class="index-box">
+            <% if r.image? %>
+              <%= link_to image_tag(r.image.url, :size =>'240x180'), riderhouse_path(r) %><br>
+            <% end %>
+            <%= link_to r.name, riderhouse_path(r) %><br>
 
-          <div class="text-white">
-            <%= "口コミ#{r.posts.count}件" %>
+            <div class="text-white">
+              <%= "口コミ#{r.posts.count}件" %>
+            </div>
+            <%= Post.new.rating_average(r) %>
+
+            <% if r.user_id == current_user.id %>
+              <%= link_to '編集', edit_riderhouse_path(r), class: 'btn btn-primary' %>
+              <%= link_to '削除', riderhouse_path(r), method: :delete, data: { confirm: "#{r.name}を削除してよろしいですか？" }, class: 'btn btn-danger' %>
+            <% end %>
+
+            <%# いいね機能 %>
+            <div id="favorite-<%= r.id %>">
+              <%= render partial: "favorites/favorite", locals: { r: r } %>
+            </div>
+
           </div>
-          <%= Post.new.rating_average(r) %>
-
-          <% if r.user_id == current_user.id %>
-            <%= link_to '編集', edit_riderhouse_path(r), class: 'btn btn-primary' %>
-            <%= link_to '削除', riderhouse_path(r), method: :delete, data: { confirm: "#{r.name}を削除してよろしいですか？" }, class: 'btn btn-danger' %>
-          <% end %>
-
-          <%# いいね機能 %>
-          <div id="favorite-<%= r.id %>">
-            <%= render partial: "favorites/favorite", locals: { r: r } %>
-          </div>
-
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <%# ページネーション %>
+  <%= paginate @riderhouses %>
   </div>
 </div>
-
-<%# ページネーション %>
-<%= paginate @riderhouses %>
