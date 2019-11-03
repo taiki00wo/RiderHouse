@@ -16,6 +16,7 @@ function successCallback(position) {
 function errorCallback(error) {
   var currentLocation = { lat: 35.678877, lng: 139.770320 };
   initMap(currentLocation);
+  console.log(error);
 }
 
 function initMap(currentLocation){
