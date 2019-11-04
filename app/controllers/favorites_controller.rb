@@ -1,10 +1,7 @@
 class FavoritesController < ApplicationController
   def index
     @riderhouses = current_user.riderhouses
-    @API_KEY_map = ENV['API_KEY_map']
-    gon.API_KEY_weather = ENV['API_KEY_weather']
-    gon.riderhouses = @riderhouses
-    @riderhouses = @riderhouses.page(params[:page]).per(6)
+    @riderhouses = @riderhouses.page(params[:page]).per(8)
   end
 
   def create

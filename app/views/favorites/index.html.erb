@@ -1,13 +1,5 @@
 <div class="favorite-bg">
   <div class="bg-mask">
-    <%# OpenWeatherMap表示 %>
-    <div id="city-name"></div>
-    <div id="weather"></div>
-
-    <%# google map表示 %>
-    <script id="googlemap" src="https://maps.googleapis.com/maps/api/js?key=<%=@API_KEY_map%>&callback=initMap" async defer></script>
-    <div id='map' style="height:500px;"></div>
-
     <%# ライダーハウス一覧の表示 %>
     <div class="container">
       <div class="row">
@@ -16,7 +8,10 @@
             <div class="index-box">
               <% if r.image? %>
                 <%= link_to image_tag(r.image.url, :size =>'240x180'), riderhouse_path(r) %><br>
+              <% else %>
+                <%= link_to image_tag('/images/riderhouse_default.png', :size =>'240x180'), riderhouse_path(r) %>
               <% end %>
+
               <%= link_to r.name, riderhouse_path(r) %><br>
 
               <div class="text-white">

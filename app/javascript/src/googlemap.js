@@ -31,20 +31,12 @@ function initMap(currentLocation){
     var center = { lat: 35, lng: 136 };
   }
 
-  //現在地を取得すると地図を拡大
-  if (currentLocation) {
-    var zoom = 10;
-  } else {
-    var zoom = 6;
-  }
-
   let map = new google.maps.Map(document.getElementById('map'), {
   center: center, //地図の中心点
-  zoom: zoom //地図の拡大・縮小
+  zoom: 8 //地図の拡大・縮小
   });
 
   for (var i = 0; i < gon.riderhouses.length; i++ ) {
-    
     // マーカーの追加
     marker[i] = new google.maps.Marker({ 
       // マーカーを立てる位置を指定

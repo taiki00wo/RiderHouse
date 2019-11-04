@@ -56,8 +56,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem 'bootstrap'
-
 # ユーザー管理
 gem 'devise'
 gem 'devise-i18n'
@@ -80,3 +78,6 @@ gem 'dotenv-rails'
 
 # 静的解析ツール
 gem 'rubocop-rails'
+
+# 検索
+gem 'ransack'

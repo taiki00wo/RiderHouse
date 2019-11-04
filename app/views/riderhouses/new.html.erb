@@ -1,42 +1,54 @@
 <div class='riderhouse-bg'>
   <div class='bg-mask'>
-    <h1>ライダーハウス新規登録</h1>
-
+    <h3>ライダーハウス新規登録</h3>
     <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
 
-      <%= form_with model: @riderhouse, local: true do |f| %>
+          <%= image_tag '/images/no_image.png', :size =>'500x375' %>
 
-        <div class="form-group">
-          <%= f.label :name, "名称" %>
-          <%= f.text_field :name, class: 'form-control' %>
+          <table class="table bg-white">
+            <tbody>
+
+              <%= form_with model: @riderhouse, local: true do |f| %>
+                <tr>
+                  <th><%= f.label "画像をアップロード" %></th>
+                  <th><%= f.file_field :image %></th>
+                </tr>
+
+                <tr>
+                  <th><%= f.label :name, "名称" %></th>
+                  <th><%= f.text_field :name, class: 'form-control' %></th>
+                </tr>
+
+                <tr>
+                  <th><%= f.label :address, "住所" %></th>
+                  <th><%= f.text_field :address, class: 'form-control' %></th>
+                </tr>
+
+                <tr>
+                  <th><%= f.label :tel, "電話番号" %></th>
+                  <th><%= f.text_field :tel, class: 'form-control' %></th>
+                </tr>
+
+                <tr>
+                  <th><%= f.label :price, "価格" %></th>
+                  <th><%= f.text_field :price, class: 'form-control' %></th>
+                </tr>
+
+                <tr>
+                  <th><%= f.label :opening_hours, "営業時間" %></th>
+                  <th><%= f.text_field :opening_hours, class: 'form-control' %></th>
+                </tr>
+
+                <tr>
+                  <th><%= f.submit "登録する", class: 'btn btn-primary' %></th>
+                <tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
-
-        <div class="form-group">
-          <%= f.label :address, "住所" %>
-          <%= f.text_field :address, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :tel, "電話番号" %>
-          <%= f.text_field :tel, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :price, "価格" %>
-          <%= f.text_field :price, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :opening_hours, "営業時間" %>
-          <%= f.text_field :opening_hours, class: 'form-control' %>
-        </div>
-
-        <%= f.label "画像をアップロード" %><br>
-        <%= f.file_field :image %><br><br>
-        
-        <%= f.submit "登録する", class: 'btn btn-primary' %>
-
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

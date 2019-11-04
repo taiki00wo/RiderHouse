@@ -1,4 +1,5 @@
 main {
+  height: 200px;
 
   .riderhouse-bg {
     background-image: image-url('riderhouse_bg_img.jpg');
@@ -37,7 +38,4 @@ main {
     border-bottom: solid 1px #c0c0c0;
   }
 
-  .riderhouse-show-table {
-    width: 500px;
-  }
 }
