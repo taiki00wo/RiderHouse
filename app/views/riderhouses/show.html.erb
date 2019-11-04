@@ -22,14 +22,6 @@
                   <th><%= @riderhouse.address %></th>
                 <tr>
                 <tr>
-                  <th>緯度</th>
-                  <th><%= @riderhouse.latitude %></th>
-                <tr>
-                <tr>
-                  <th>経度</th>
-                  <th><%= @riderhouse.longitude %></th>
-                <tr>
-                <tr>
                   <th>電話番号</th>
                   <th><%= @riderhouse.tel %></th>
                 </tr>
@@ -57,8 +49,10 @@
 
         <div class="col-lg-6">
           <div class="overflow-auto" style="height:680px;">
-            <%= "口コミ#{@riderhouse.posts.count}件" %><br>
-            <%= Post.new.rating_average(@riderhouse) %>
+            <h4>
+              <%= "口コミ#{@riderhouse.posts.count}件" %><br>
+              <%= Post.new.rating_average(@riderhouse) %>
+            </h4>
             <%# 口コミを表示 %>
             <% @posts.each do |post| %>
               <table class="table bg-white">

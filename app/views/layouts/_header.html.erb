@@ -29,7 +29,7 @@
       </li>
       <li class="nav-item　dropdown"> 
         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= current_user.name %>
+          <span class="text-light"><%= current_user.name %></span>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
