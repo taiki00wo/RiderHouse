@@ -13,8 +13,8 @@ require("@rails/activestorage").start()
 require("channels")
 
 require('popper.js')
-require('openweathermap.js')
-require('googlemap.js')
+require('../src/openweathermap.js')
+require('../src/googlemap.js')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
