@@ -6,8 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(name: "test1", email: "test1@email.com", password: 'password', 
+User.create!(
+name: "test1",
+email: "test1@email.com",
+password: 'password', 
+bike_name: 'cb400sf',
+location: '東京都',
+gender: '男',
+age: '23',
+favorite_load: 'オロロンライン',
+when_ride: '2018年4月から',
 image: open("#{Rails.root}/db/images/user_default.jpeg"))
+
+
 
 10.times do |i|
 Riderhouse.create!(name: "riderhouse#{i}", address: '東京都品川区南大井', 
