@@ -1,43 +1,66 @@
 <div class='riderhouse-bg'>
   <div class='bg-mask'>
-  <h1>ライダーハウス編集</h1>
-
     <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+    
+          <% if @riderhouse.image? %>
+            <%= image_tag @riderhouse.image.url, :size =>'500x375' %>
+          <% else %>
+            <div class="image-box"%></div>
+          <% end %> 
 
-      <%= form_with model: @riderhouse, local: true do |f| %>
+          <table class="table">
+            <tbody>
 
-        <div class="form-group">
-          <%= f.label :name, "名称" %>
-          <%= f.text_field :name, class: 'form-control' %>
+              <%= form_with model: @riderhouse, local: true do |f| %>
+                <tr>
+                  <td><%= f.label "画像をアップロード" %></td>
+                  <td><%= f.file_field :image %></td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label :name, "名称" %></td>
+                  <td><%= f.text_field :name, class: 'form-control' %></td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label :address, "住所" %></td>
+                  <td><%= f.text_field :address, class: 'form-control' %></td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label :tel, "電話番号" %></td>
+                  <td><%= f.text_field :tel, class: 'form-control' %></td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label :price, "価格" %></td>
+                  <td><%= f.text_field :price, class: 'form-control' %></td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label :opening_hours, "営業時間" %></td>
+                  <td><%= f.text_field :opening_hours, class: 'form-control' %></td>
+                </tr>
+            </tbody>
+          </table>
         </div>
-
-        <div class="form-group">
-          <%= f.label :address, "住所" %>
-          <%= f.text_field :address, class: 'form-control' %>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <%= link_to riderhouse_path(@riderhouse) do %>
+            <i class="fas fa-backspace fa-5x"></i>
+          <% end %>
+        </div>    
+        <div class="col-lg-3">  
+          <%= button_tag type: 'submit' do %>
+            <i class="fas fa-save fa-5x"></i>
+          <% end %>
         </div>
-
-        <div class="form-group">
-          <%= f.label :tel, "電話番号" %>
-          <%= f.text_field :tel, class: 'form-control' %>
+        <% end %> <%# form_with %>
         </div>
-
-        <div class="form-group">
-          <%= f.label :price, "価格" %>
-          <%= f.text_field :price, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :opening_hours, "営業時間" %>
-          <%= f.text_field :opening_hours, class: 'form-control' %>
-        </div>
-
-        <%= f.label "画像をアップロード" %><br>
-        <%= f.file_field :image %><br><br>
-        
-        <%= f.submit "更新する", class: 'btn btn-primary' %>
-
-      <% end %>
-
+      </div>
     </div>
   </div>
 </div>

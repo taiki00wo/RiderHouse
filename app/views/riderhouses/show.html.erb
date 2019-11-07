@@ -11,39 +11,42 @@
           <% end %> 
 
           <div class="table-responsive">
-            <table class="table bg-white">
+            <table class="table">
               <tbody>
                 <tr>
-                  <th>名称</th>
-                  <th><%= @riderhouse.name %></th>
+                  <td>名称</td>
+                  <td><%= @riderhouse.name %></td>
                 </tr>
                 <tr>
-                  <th>住所</th>
-                  <th><%= @riderhouse.address %></th>
+                  <td>住所</td>
+                  <td><%= @riderhouse.address %></td>
                 <tr>
                 <tr>
-                  <th>電話番号</th>
-                  <th><%= @riderhouse.tel %></th>
+                  <td>電話番号</td>
+                  <td><%= @riderhouse.tel %></td>
                 </tr>
                 <tr>
-                  <th>価格</th>
-                  <th><%= @riderhouse.price %></th>
+                  <td>価格</td>
+                  <td><%= @riderhouse.price %></td>
                 </tr>
                 <tr>
-                  <th>営業時間</th>
-                  <th><%= @riderhouse.opening_hours %></th>
-                </tr>
-                <tr>
-                  <% if @riderhouse.user_id == current_user.id %>
-                    <th>
-                      <%= link_to '編集', edit_riderhouse_path(@riderhouse), class: 'btn btn-primary' %>
-                      <%= link_to '削除', riderhouse_path(@riderhouse), method: :delete, data: { confirm: "#{@riderhouse.name}を削除してよろしいですか？" }, class: 'btn btn-danger' %>
-                    </th>
-                  <% end %>
+                  <td>営業時間</td>
+                  <td><%= @riderhouse.opening_hours %></td>
                 </tr>
               </tbody>
             </table>
           </div>
+
+          <% if @riderhouse.user_id == current_user.id %>
+            <%= link_to edit_riderhouse_path(@riderhouse) do %>
+              <i class="fas fa-edit fa-5x"></i>
+            <% end %>
+            <span class='trash-icon'>
+              <%= link_to riderhouse_path(@riderhouse), method: :delete, data: { confirm: "#{@riderhouse.name}を削除してよろしいですか？" } do %>
+                <i class="fas fa-trash fa-5x"></i>
+              <% end %>  
+            </span>   
+          <% end %>
 
         </div>
 
@@ -59,26 +62,26 @@
                 <tbody>
                   <tr>
                     <% if post.user.image? %>
-                      <th><%= link_to image_tag(post.user.image.url, :size =>'50x50'), user_path(post.user), class: 'rounded-circle' %></th>
+                      <td><%= link_to image_tag(post.user.image.url, :size =>'50x50'), user_path(post.user), class: 'rounded-circle' %></td>
                     <% else %>
-                      <th><%= link_to image_tag('/images/user_default.jpeg', :size =>'50x50'), user_path(post.user), class: 'rounded-circle' %></th>
+                      <td><%= link_to image_tag('/images/user_default.jpeg', :size =>'50x50'), user_path(post.user), class: 'rounded-circle' %></td>
                     <% end %>
-                    <th>名前：<%= post.user.name %></th>
+                    <td>名前：<%= post.user.name %></td>
                 
                   </tr>
                   <tr>
-                    <th>評価</th>
-                    <th><%= post.rating %></th>
+                    <td>評価</td>
+                    <td><%= post.rating %></td>
                   </tr>
                   <tr>
-                    <th>口コミ</th>
-                    <th><%= post.content %><th>
+                    <td>口コミ</td>
+                    <td><%= post.content %><td>
                   <tr>
                 </tbody>
               </table>
             <% end %>
-          </div> 
           <%= link_to '口コミを投稿する', new_riderhouse_post_path(@riderhouse), class: 'btn btn-primary' %> 
+          </div> 
         </div>
       </div>
     </div>

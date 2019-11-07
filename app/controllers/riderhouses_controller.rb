@@ -1,10 +1,23 @@
 class RiderhousesController < ApplicationController
   def index
-    @riderhouses = Riderhouse.all
-    @q = Riderhouse.ransack(params[:q])
-    @riderhouses = @q.result(distinct: true)
+    if params[:q].present?
+      @search = Riderhouse.ransack(params[:q])
+      # お気に入りの数でソート
+      if params[:q] == {"sorts"=>"favorites_count desc"}
+        @riderhouses = Riderhouse.find(Favorite.group(:riderhouse_id).order('count(riderhouse_id) desc').pluck(:riderhouse_id))
+      # 口コミの数でソート
+      elsif params[:q] == {"sorts"=>"posts_count desc"}
+        @riderhouses = Riderhouse.find(Post.group(:riderhouse_id).order('count(riderhouse_id) desc').pluck(:riderhouse_id))
+      end
+      @riderhouses = @search.result
+    else
+      params[:q] = { sorts: 'id desc' }
+      @search = Riderhouse.ransack(params[:q])
+      @riderhouses = Riderhouse.all
+    end
+      
     gon.API_KEY_weather = ENV['API_KEY_weather']
-    @riderhouses = Riderhouse.page(params[:page]).per(8)
+    @riderhouses = @riderhouses.page(params[:page]).per(8)
   end
 
   def index_map

@@ -1,17 +1,14 @@
 <div class='riderhouse-bg'>
   <div class='bg-mask'>
-    <%= search_form_for @q do |f| %>
-      <%= f.label :name, "Keyword" %>
-      <%= f.search_field :name_cont %> 
-      <%= f.submit "検索" %>
-    <% end %>
+
+    <%= render 'riderhouses/search' %>
+    <%= render 'riderhouses/sort' %>
 
     <%# ライダーハウス一覧の表示 %>
     <div class="container">
       <div class="row">
         <% @riderhouses.each do |r| %>
           <div class="col-sm-6 col-lg-3">
-            <%# <div class="index-box"> %>
             <div class="table-responsiv">
             　<table class="table">
                 <tbody>
@@ -24,19 +21,20 @@
                   </tr>
 
                   <tr>
-                    <th>
-                      <%= link_to r.name, riderhouse_path(r) %> &nbsp;
+                    <td>
+                      <%= link_to r.name, riderhouse_path(r) %>
                       <span id="favorite-<%= r.id %>">
                         <%= render partial: "favorites/favorite", locals: { r: r } %>
                       </span>
-                    </th>
+                    </td>
                   </tr>
 
                   <tr>
-                    <th>
+                    <td>
                       <%= "口コミ#{r.posts.count}件" %><br>
-                      <%= Post.new.rating_average(r) %>
-                    </th>
+                      <%= Post.new.rating_average(r) %><br>
+                      <%= "お気に入り登録数#{r.favorites.count}件" %><br>
+                    </td>
                   </tr>
 
                 </tbody>
