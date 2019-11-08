@@ -1,28 +1,28 @@
-<%# google map表示 %>
-<script id="googlemap" src="https://maps.googleapis.com/maps/api/js?key=<%=@API_KEY_map%>" async defer></script>
-<div id='map-show' style="height:600px;"></div>
+// // <%# google map表示 %>
+// <script id="googlemap" src="https://maps.googleapis.com/maps/api/js?key=<%=@API_KEY_map%>" async defer></script>
+// <div id='map-show' style="height:600px;"></div>
 
-<script>
-document.addEventListener('turbolinks:load', function(){
-  initMap();
-});
+// <script>
+// document.addEventListener('turbolinks:load', function(){
+//   initMap();
+// });
 
-function initMap(){
-  map = new google.maps.Map(document.getElementById('map-show'), {
-  center: {lat: gon.riderhouse.latitude, lng: gon.riderhouse.longitude},
-  zoom: 15
-  });
+// function initMap(){
+//   map = new google.maps.Map(document.getElementById('map-show'), {
+//   center: {lat: gon.riderhouse.latitude, lng: gon.riderhouse.longitude},
+//   zoom: 15
+//   });
 
-  marker = new google.maps.Marker({ // マーカーの追加
-    position: {lat: gon.riderhouse.latitude, lng: gon.riderhouse.longitude}, // マーカーを立てる位置を指定
-    map: map // マーカーを立てる地図を指定
-  });
+//   marker = new google.maps.Marker({ // マーカーの追加
+//     position: {lat: gon.riderhouse.latitude, lng: gon.riderhouse.longitude}, // マーカーを立てる位置を指定
+//     map: map // マーカーを立てる地図を指定
+//   });
 
-  infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
-    content: `<div class="map-show">${gon.riderhouse.name}</div>` // 吹き出しに表示する内容
-  });
-  marker.addListener('click', function() { // マーカーをクリックしたとき
-    infoWindow.open(map, marker); // 吹き出しの表示
-  });
-}
-</script>
+//   infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+//     content: `<div class="map-show">${gon.riderhouse.name}</div>` // 吹き出しに表示する内容
+//   });
+//   marker.addListener('click', function() { // マーカーをクリックしたとき
+//     infoWindow.open(map, marker); // 吹き出しの表示
+//   });
+// }
+// </script>

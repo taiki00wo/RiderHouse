@@ -43,22 +43,22 @@
                   <td><%= f.label :opening_hours, "営業時間" %></td>
                   <td><%= f.text_field :opening_hours, class: 'form-control' %></td>
                 </tr>
+
+                <tr class="no-underline">
+                  <td>
+                    <%= link_to riderhouse_path(@riderhouse) do %>
+                      <i class="fas fa-backspace fa-5x"></i>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= button_tag type: 'submit' do %>
+                      <i class="fas fa-save fa-5x"></i>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %> 
             </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-3">
-          <%= link_to riderhouse_path(@riderhouse) do %>
-            <i class="fas fa-backspace fa-5x"></i>
-          <% end %>
-        </div>    
-        <div class="col-lg-3">  
-          <%= button_tag type: 'submit' do %>
-            <i class="fas fa-save fa-5x"></i>
-          <% end %>
-        </div>
-        <% end %> <%# form_with %>
+          </table> 
         </div>
       </div>
     </div>

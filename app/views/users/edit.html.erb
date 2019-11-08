@@ -1,45 +1,63 @@
-<h1>プロフィール編集</h1>
+<div class='user-bg'>
+  <div class='bg-mask'>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <table class="table">
+            <tbody>
+              <tr>
+                <% if @user.image? %>
+                  <td><%= image_tag @user.image.url, :size =>'50x50', class: 'rounded-circle' %>&nbsp;&nbsp;<%= @user.name %></td>
+                <% else %>
+                  <td><%= image_tag '/images/user_default.jpeg', :size =>'50x50', class: 'rounded-circle' %>&nbsp;&nbsp;<%= @user.name %></td>
+                <% end %>
+              </tr>
+              <%= form_with model: @user, local: true do |f| %>
 
-<div class="container">
+                <tr>
+                  <td><%= f.label :bike_name, "乗ってるバイク" %></td>
+                  <td><%= f.text_field :bike_name, class: 'form-control' %></td>
+                </tr>
 
-  <%= form_with model: @user, local: true do |f| %>
+                <tr>
+                  <td><%= f.label :location, "住んでるところ" %></td>
+                  <td><%= f.text_field :location, class: 'form-control' %></td>
+                </tr>
 
-    <div class="form-group">
-      <%= f.label :name, "名前" %>
-      <%= f.text_field :name, class: 'form-control' %>
+                <tr>
+                  <td><%= f.label :gender, "性別" %></td>
+                  <td><%= f.text_field :gender, class: 'form-control' %></td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label :age, "年齢" %></td>
+                  <td><%= f.text_field :age, class: 'form-control' %></td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label :favorite_load, "お気に入りの道" %></td>
+                  <td><%= f.text_field :favorite_load, class: 'form-control' %></td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label :when_ride, "いつからバイクに乗ってる？" %></td>
+                  <td><%= f.text_field :when_ride, class: 'form-control' %></td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label :image, "アイコン画像を設定" %><br></td>
+                  <td><%= f.file_field :image %></td>
+                </tr>
+
+                <tr class="no-underline">
+                  <td></td>
+                  <td><%= f.submit "登録する", class: 'btn btn-primary' %></td>
+                </tr>
+              <% end %> 
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-
-    <div class="form-group">
-      <%= f.label :bike_name, "乗ってるバイク" %>
-      <%= f.text_field :bike_name, class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :location, "住んでるところ" %>
-      <%= f.text_field :location, class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :gender, "性別" %>
-      <%= f.text_field :gender, class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :age, "年齢" %>
-      <%= f.text_field :age, class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :favorite_load, "お気に入りの道" %>
-      <%= f.text_field :favorite_load, class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :when_ride, "いつからバイクに乗ってる？" %>
-      <%= f.text_field :when_ride, class: 'form-control' %>
-    </div>
-    
-    <%= f.submit "登録する", class: 'btn btn-primary' %>
-
-  <% end %>
+  </div>
 </div>

@@ -1,42 +1,45 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-6">
-    <table class="table bg-white">
-      <tbody>
-        <tr>
-          <% if @user.image? %>
-            <th><%= image_tag @user.image.url, :size =>'50x50', class: 'rounded-circle' %></th>
-          <% else %>
-            <th><%= image_tag '/images/user_default.jpeg', :size =>'50x50', class: 'rounded-circle' %></th>
-          <% end %>
-          <th><%= @user.name %></th>
-        </tr>
-        <tr>
-          <th>性別</th>
-          <th><%= @user.gender %></th>
-        <tr>
-        <tr>
-          <th>年齢</th>
-          <th><%= @user.age %></th>
-        <tr>
-        <tr>
-          <th>乗ってるバイク</th>
-          <th><%= @user.bike_name %></th>
-        <tr>
-        <tr>
-          <th>いつから乗ってる？</th>
-          <th><%= @user.when_ride %></th>
-        <tr>
-        <tr>
-          <th>住んでる所</th>
-          <th><%= @user.location %></th>
-        <tr>
-        <tr>
-          <th>お気に入りの道</th>
-          <th><%= @user.favorite_load %></th>
-        <tr>
-      </tbody>
-    </table>
+<div class='user-bg'>
+  <div class='bg-mask'>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+        <table class="table">
+          <tbody>
+            <tr>
+              <% if @user.image? %>
+                <td><%= image_tag @user.image.url, :size =>'50x50', class: 'rounded-circle' %>&nbsp;&nbsp;<%= @user.name %></td>
+              <% else %>
+                <td><%= image_tag '/images/user_default.jpeg', :size =>'50x50', class: 'rounded-circle' %>&nbsp;&nbsp;<%= @user.name %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <td>性別</td>
+              <td><%= @user.gender %></td>
+            <tr>
+            <tr>
+              <td>年齢</td>
+              <td><%= @user.age %></td>
+            <tr>
+            <tr>
+              <td>乗ってるバイク</td>
+              <td><%= @user.bike_name %></td>
+            <tr>
+            <tr>
+              <td>いつから乗ってる？</td>
+              <td><%= @user.when_ride %></td>
+            <tr>
+            <tr>
+              <td>住んでる所</td>
+              <td><%= @user.location %></td>
+            <tr>
+            <tr>
+              <td>お気に入りの道</td>
+              <td><%= @user.favorite_load %></td>
+            <tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>

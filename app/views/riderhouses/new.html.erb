@@ -1,6 +1,5 @@
 <div class='riderhouse-bg'>
   <div class='bg-mask'>
-    <h3>ライダーハウス新規登録</h3>
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
@@ -17,8 +16,8 @@
                 </tr>
 
                 <tr>
-                  <td><%= f.label :name, "名称" %></td>
-                  <td><%= f.text_field :name, class: 'form-control' %></td>
+                  <td><%= f.label :name, "名前" %></td>
+                  <td><%= f.text_field :name, class: 'form-control' %>(入力必須。14文字以下で入力してください)</td>
                 </tr>
 
                 <tr>
@@ -41,9 +40,9 @@
                   <td><%= f.text_field :opening_hours, class: 'form-control' %></td>
                 </tr>
 
-                <tr>
-                  <td><%= f.submit "登録する", class: 'btn btn-primary' %></td>
+                <tr class="no-underline">
                   <td></td>
+                  <td><%= f.submit "登録する", class: 'btn btn-primary' %></td>
                 <tr>
               <% end %>
             </tbody>

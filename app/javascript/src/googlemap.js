@@ -22,14 +22,8 @@ function errorCallback(error) {
 function initMap(currentLocation){
   var marker = [];
   var infoWindow = [];
+  var center = { lat: parseFloat(currentLocation.lat), lng: parseFloat(currentLocation.lng) };
 
-  if (currentLocation) {
-    //現在の緯度と経度をcenter
-    var center = { lat: currentLocation.lat, lng: currentLocation.lng };
-  } else {
-    //デフォルトの位置情報
-    var center = { lat: 35, lng: 136 };
-  }
 
   let map = new google.maps.Map(document.getElementById('map'), {
   center: center, //地図の中心点
@@ -40,7 +34,7 @@ function initMap(currentLocation){
     // マーカーの追加
     marker[i] = new google.maps.Marker({ 
       // マーカーを立てる位置を指定
-      position: {lat: gon.riderhouses[i].latitude, lng: gon.riderhouses[i].longitude}, 
+      position: {lat: parseFloat(gon.riderhouses[i].latitude), lng: parseFloat(gon.riderhouses[i].longitude)}, 
       // マーカーを立てる地図を指定
       map: map 
     });

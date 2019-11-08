@@ -33,24 +33,27 @@
                   <td>営業時間</td>
                   <td><%= @riderhouse.opening_hours %></td>
                 </tr>
+
+                <tr class="no-underline">
+                <% if @riderhouse.user_id == current_user.id %>
+                  <td>
+                    <%= link_to edit_riderhouse_path(@riderhouse) do %>
+                      <i class="fas fa-edit fa-5x"></i>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to riderhouse_path(@riderhouse), method: :delete, data: { confirm: "#{@riderhouse.name}を削除してよろしいですか？" } do %>
+                      <i class="fas fa-trash fa-5x"></i>
+                    <% end %>  
+                  </td>
+                <% end %>
+                </tr>
               </tbody>
             </table>
           </div>
-
-          <% if @riderhouse.user_id == current_user.id %>
-            <%= link_to edit_riderhouse_path(@riderhouse) do %>
-              <i class="fas fa-edit fa-5x"></i>
-            <% end %>
-            <span class='trash-icon'>
-              <%= link_to riderhouse_path(@riderhouse), method: :delete, data: { confirm: "#{@riderhouse.name}を削除してよろしいですか？" } do %>
-                <i class="fas fa-trash fa-5x"></i>
-              <% end %>  
-            </span>   
-          <% end %>
-
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-4">
           <div class="overflow-auto" style="height:680px;">
             <h4>
               <%= "口コミ#{@riderhouse.posts.count}件" %><br>

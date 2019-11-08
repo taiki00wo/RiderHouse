@@ -15,6 +15,11 @@
           <%= link_to 'ログイン', new_user_session_path, class: 'nav-link text-light'%>
         <% end %>
       </li>
+      <li class="nav-item">
+        <%- if current_user.nil? && devise_mapping.registerable? && controller_name != 'registrations' %>
+          <%= link_to "ユーザー新規登録", new_registration_path(resource_name), class: 'nav-link text-light' %>
+        <% end %>
+      </li>
     </ul>
 
     <% if current_user %>
@@ -32,8 +37,9 @@
         <div class="dropdown-menu dropdown-menu-right">
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
           <%= link_to 'お気に入り', favorites_path, class: 'dropdown-item' %>
-          <%= link_to 'ユーザー編集', edit_user_registration_path, class: 'dropdown-item' %>
+          <%= link_to 'アカウント編集', edit_user_registration_path, class: 'dropdown-item' %>
           <%= link_to 'プロフィール編集', edit_user_path(current_user), class: 'dropdown-item' %>
+          <%= link_to "アカウント削除", registration_path(resource_name), data: { confirm: "削除してよろしいですか?" }, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
     </ul>

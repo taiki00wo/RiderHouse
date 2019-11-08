@@ -15,14 +15,13 @@ class RiderhousesController < ApplicationController
       @search = Riderhouse.ransack(params[:q])
       @riderhouses = Riderhouse.all
     end
-      
-    gon.API_KEY_weather = ENV['API_KEY_weather']
     @riderhouses = @riderhouses.page(params[:page]).per(8)
   end
 
   def index_map
     gon.riderhouses = Riderhouse.all
     @API_KEY_map = ENV['API_KEY_map']
+    gon.API_KEY_weather = ENV['API_KEY_weather']
   end
 
   def show
