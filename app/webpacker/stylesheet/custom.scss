@@ -5,69 +5,68 @@ html {
     main {
       height: 100%;
       .riderhouse-bg {
-        min-width :100%;
-        // background: image-url("riderhouse_bg_img.jpg");
-        
+        min-width: 100%;
+        background: image-url("riderhouse_bg_img.jpg");
         background-size: cover;
-        
+
         .bg-mask {
-        min-width :100%;  
-        padding-top: 50px;
-        padding-bottom: 50px;
-        background-color:rgba(255,255,255,0.5);
-        height: 100%;
+          min-width: 100%;
+          padding-top: 50px;
+          padding-bottom: 50px;
+          background-color: rgba(255, 255, 255, 0.5);
+          height: 100%;
         }
       }
 
       .map-bg {
         height: 100%;
-        // background: image-url('riderhouse_bg_img.jpg');
+        // background: url("<%= asset_path 'riderhouse_bg_img.jpg' %>");
         background-size: cover;
-        
+
         .bg-mask {
-        padding-top: 50px;
-        padding-bottom: 50px;
-        background-color:rgba(255,255,255,0.5);
-        height: 100%;
+          padding-top: 50px;
+          padding-bottom: 50px;
+          background-color: rgba(255, 255, 255, 0.5);
+          height: 100%;
         }
       }
 
       .user-bg {
         height: 100%;
-        // background: image-url('user_bg_img.jpg');
+        // background: url("<%= asset_path 'user_bg_img.jpg' %>");
         background-size: cover;
-        
+
         .bg-mask {
-        padding-top: 50px;
-        padding-bottom: 50px;
-        background-color:rgba(255,255,255,0.3);
-        height: 100%;
+          padding-top: 50px;
+          padding-bottom: 50px;
+          background-color: rgba(255, 255, 255, 0.3);
+          height: 100%;
         }
       }
 
       .favorite-bg {
         height: 100%;
-        // background: image-url('favorite_bg_img.jpg');
+        // background: url("<%= asset_path 'favorite_bg_img.jpg' %>");
         background-size: cover;
-        
+
         .bg-mask {
-        padding-top: 50px;
-        padding-bottom: 50px;
-        background-color:rgba(255,255,255,0.3);
-        height: 100%;
+          padding-top: 50px;
+          padding-bottom: 50px;
+          background-color: rgba(255, 255, 255, 0.3);
+          height: 100%;
         }
       }
 
       .post-bg {
         height: 100%;
-        // background: image-url('post_bg_img.jpg');
+        // background: url("<%= asset_path 'post_bg_img.jpg' %>");
         background-size: cover;
-        
+
         .bg-mask {
-        padding-top: 50px;
-        padding-bottom: 50px;
-        background-color:rgba(255,255,255,0.3);
-        height: 100%;
+          padding-top: 50px;
+          padding-bottom: 50px;
+          background-color: rgba(255, 255, 255, 0.3);
+          height: 100%;
         }
       }
 
@@ -81,7 +80,7 @@ html {
         margin: 0;
       }
     }
-  } 
+  }
 }
 /* table */
 .table th {
@@ -103,54 +102,53 @@ html {
   border-bottom: none;
 }
 
-
 /* 検索ボックス */
-dl.searchbox{
-  margin-left: 20px; 
+dl.searchbox {
+  margin-left: 20px;
   width: 300px;
-  position:relative;
-  background-color:#fff;
-  border-radius:6px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 6px;
 }
 
-dl.searchbox dt input{
-  width:70%;
-  height:33px;
-  line-height:33px;
-  background:none;
-  border:none;
+dl.searchbox dt input {
+  width: 70%;
+  height: 33px;
+  line-height: 33px;
+  background: none;
+  border: none;
 }
 
-dl.searchbox dt select{
-  width:70%;
-  height:33px;
-  line-height:33px;
-  background:none;
-  border:none;
+dl.searchbox dt select {
+  width: 70%;
+  height: 33px;
+  line-height: 33px;
+  background: none;
+  border: none;
 }
 
-dl.searchbox dd{
-  position:absolute;
-  top:0px;
-  right:0px;
-  width:30%;
+dl.searchbox dd {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 30%;
 }
-.search-btn{
+.search-btn {
   padding: none;
-  display:block;
-  background:#17a2b8;
-  width:100%;
-  line-height:30px;
-  border:none;
+  display: block;
+  background: #17a2b8;
+  width: 100%;
+  line-height: 30px;
+  border: none;
   border-radius: 0 6px 6px 0;
-  color:#FFF;
+  color: #fff;
 }
 
 .search-btn:hover {
   background: #0b616e;
 }
 
-button{
+button {
   background-color: transparent;
   border: none;
   cursor: pointer;

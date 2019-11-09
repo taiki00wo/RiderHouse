@@ -12,7 +12,6 @@ require("channels")
 require('popper.js')
 
 require('../stylesheet/application')
-require('../stylesheet/custom')
 require('../javascript/openweathermap')
 require('../javascript/googlemap')
 
