@@ -6,7 +6,8 @@ html {
       height: 100%;
       .riderhouse-bg {
         min-width :100%;
-        background: image-url('riderhouse_bg_img.jpg');
+        // background: image-url("riderhouse_bg_img.jpg");
+        
         background-size: cover;
         
         .bg-mask {
@@ -20,7 +21,7 @@ html {
 
       .map-bg {
         height: 100%;
-        background: image-url('riderhouse_bg_img.jpg');
+        // background: image-url('riderhouse_bg_img.jpg');
         background-size: cover;
         
         .bg-mask {
@@ -33,7 +34,7 @@ html {
 
       .user-bg {
         height: 100%;
-        background: image-url('user_bg_img.jpg');
+        // background: image-url('user_bg_img.jpg');
         background-size: cover;
         
         .bg-mask {
@@ -46,7 +47,7 @@ html {
 
       .favorite-bg {
         height: 100%;
-        background: image-url('favorite_bg_img.jpg');
+        // background: image-url('favorite_bg_img.jpg');
         background-size: cover;
         
         .bg-mask {
@@ -59,7 +60,7 @@ html {
 
       .post-bg {
         height: 100%;
-        background: image-url('post_bg_img.jpg');
+        // background: image-url('post_bg_img.jpg');
         background-size: cover;
         
         .bg-mask {
