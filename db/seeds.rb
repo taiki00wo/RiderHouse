@@ -18,15 +18,46 @@ favorite_load: 'オロロンライン',
 when_ride: '2018年4月から',
 image: open("#{Rails.root}/db/images/user_default.jpeg"))
 
+User.create!(
+name: "test2",
+email: "test2@email.com",
+password: 'password', 
+bike_name: 'ninja250',
+location: '栃木県',
+gender: '男',
+age: '30',
+favorite_load: '国道53号線',
+when_ride: '2010年4月から',
+image: open("#{Rails.root}/db/images/user_default.jpeg"))
+
+User.create!(
+name: "test3",
+email: "test3@email.com",
+password: 'password', 
+bike_name: 'cbr250',
+location: '北海道',
+gender: '女',
+age: '26',
+favorite_load: 'ビーナスライン',
+when_ride: '2017年4月から',
+image: open("#{Rails.root}/db/images/user_default.jpeg"))
 
 
-10.times do |i|
-Riderhouse.create!(name: "riderhouse#{i}", address: '東京都品川区南大井', 
-tel: '0000-11-2222', price: 2000, opening_hours: '7:00~18:00', 
-image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
-user_id: 1)
+3.times do |i|
+  Riderhouse.create!(name: "riderhouse#{i}", address: '東京都品川区南大井', 
+  tel: '0000-11-2222', price: 2000, opening_hours: '7:00~18:00', 
+  image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
+  user_id: 1)
 end
 
 3.times do |i|
-Post.create!(rating: 5, content: "とてもいい", user_id: 1, riderhouse_id: 1)
+  Riderhouse.create!(name: "riderhouse#{i}", address: '東京都港区南青山', 
+  tel: '1111-11-2222', price: 4000, opening_hours: '7:00~20:00', 
+  image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
+  user_id: 2)
+end
+
+
+3.times do |i|
+Post.create!(rating: 5, content: "とてもいい", user_id: i, riderhouse_id: 1)
 end

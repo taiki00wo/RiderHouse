@@ -13,6 +13,7 @@
                 <% end %>
               </tr>
               <%= form_with model: @user, local: true do |f| %>
+              <%= render 'layouts/error_messages', model: f.object %>
 
                 <tr>
                   <td><%= f.label :bike_name, "乗ってるバイク" %></td>
@@ -26,7 +27,7 @@
 
                 <tr>
                   <td><%= f.label :gender, "性別" %></td>
-                  <td><%= f.text_field :gender, class: 'form-control' %></td>
+                  <td><%= f.select :gender, [["男", "男"], ["女", "女"]],  :prompt => "選択してください" %></td>
                 </tr>
 
                 <tr>
@@ -45,12 +46,23 @@
                 </tr>
 
                 <tr>
-                  <td><%= f.label :image, "アイコン画像を設定" %><br></td>
+                  <td><%= f.label :twitter_id, "Twitterアカウント" %></td>
+                  <td><%= f.text_field :twitter_id, class: 'form-control' %></td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label :image, "アイコン画像を設定" %></td>
                   <td><%= f.file_field :image %></td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label :password, "パスワード" %>(必須)</td>
+                  <td><%= f.text_field :password, class: 'form-control' %></td>
                 </tr>
 
                 <tr class="no-underline">
                   <td></td>
+                  <%# リンク設定 %>
                   <td><%= f.submit "登録する", class: 'btn btn-primary' %></td>
                 </tr>
               <% end %> 

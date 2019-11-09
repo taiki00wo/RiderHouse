@@ -17,4 +17,10 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :bike_name, :gender, :age, :favolite_load, :when_ride, :twitter_id, :image)
+  end
 end

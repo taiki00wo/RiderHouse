@@ -1,6 +1,5 @@
 document.addEventListener('turbolinks:load', function(){
   getCurrentLocation();
-});
 
 //現在地の取得
 function getCurrentLocation() {
@@ -56,3 +55,5 @@ function initMap(currentLocation){
     });
   }
 }
+
+});

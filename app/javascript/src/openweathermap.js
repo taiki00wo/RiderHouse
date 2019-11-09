@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-  var city = 'Tokyo'; //現在地の緯度・経度に変更
+  var city = 'Tokyo'; 
   var url = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&units=metric&APPID=' + gon.API_KEY_weather;
   $.ajax({
     url: url,

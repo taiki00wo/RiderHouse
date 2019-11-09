@@ -14,6 +14,7 @@
             <tbody>
 
               <%= form_with model: @riderhouse, local: true do |f| %>
+              <%= render 'layouts/error_messages', model: f.object %>
                 <tr>
                   <td><%= f.label "画像をアップロード" %></td>
                   <td><%= f.file_field :image %></td>
