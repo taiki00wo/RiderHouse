@@ -11,9 +11,9 @@ require("@rails/activestorage").start()
 require("channels")
 require('popper.js')
 
-require('../stylesheet/application')
-require('../javascript/openweathermap')
-require('../javascript/googlemap')
+require('../stylesheets/application')
+require('../javascripts/openweathermap')
+require('../javascripts/googlemap')
 
 // require.context('../images', true, /\.(png|jpg|jpeg|svg)$/);
 

@@ -85,3 +85,5 @@ gem 'ransack'
 # bootstrap
 gem 'bootstrap-sass'
 gem 'sass-rails'
+
+gem 'coffee-rails'
