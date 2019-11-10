@@ -10,6 +10,7 @@ class RiderhousesController < ApplicationController
         @riderhouses = Riderhouse.find(Post.group(:riderhouse_id).order('count(riderhouse_id) desc').pluck(:riderhouse_id))
       end
       @riderhouses = @search.result
+      flash[:notice] = "検索結果は#{@riderhouses.count}件です。"
     else
       params[:q] = { sorts: 'id desc' }
       @search = Riderhouse.ransack(params[:q])
@@ -19,8 +20,7 @@ class RiderhousesController < ApplicationController
   end
 
   def index_map
-    gon.riderhouses = Riderhouse.all
-    # @riderhouses = Riderhouse.all
+    @riderhouses = Riderhouse.all
     @API_KEY_map = ENV['API_KEY_map']
     gon.API_KEY_weather = ENV['API_KEY_weather']
   end

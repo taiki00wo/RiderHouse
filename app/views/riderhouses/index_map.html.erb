@@ -42,11 +42,16 @@ function initMap(currentLocation){
   zoom: 8 //地図の拡大・縮小
   });
 
-  for (var i = 0; i < gon.riderhouses.length; i++ ) {
+  <% @riderhouses.each_with_index do |riderhouse,i| %>
+    //変数マッピング
+    lat = <%= riderhouse.latitude %>
+    lng = <%= riderhouse.longitude %>
+    i   = <%= i %>
+  
     // マーカーの追加
-    marker[i] = new google.maps.Marker({ 
+    marker[i] = new google.maps.Marker({  
       // マーカーを立てる位置を指定
-      position: {lat: parseFloat(gon.riderhouses[i].latitude), lng: parseFloat(gon.riderhouses[i].longitude)}, 
+      position: {lat: lat, lng: lng}, 
       // マーカーを立てる地図を指定
       map: map 
     });
@@ -54,11 +59,11 @@ function initMap(currentLocation){
     // 吹き出しの追加
     infoWindow[i] = new google.maps.InfoWindow({ 
       // 吹き出しに表示する内容
-      content: `<div class="map">${gon.riderhouses[i].name}</div>` 
+      content: `<div class="map"><%= link_to riderhouse.name, riderhouse_path(riderhouse) %></div>` 
     });
 
     markerEvent(i);
-  }
+  <% end %>
 
   function markerEvent(i) {  
     // マーカーをクリックしたとき
