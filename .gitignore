@@ -34,3 +34,7 @@ yarn-debug.log*
 /.env
 
 readme
+
+yarn.lock
+
+
