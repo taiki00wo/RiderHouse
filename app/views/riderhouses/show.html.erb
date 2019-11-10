@@ -19,7 +19,11 @@
                 </tr>
                 <tr>
                   <td>住所</td>
+                  <% if @riderhouse.latitude && @riderhouse.longitude %>
+                  <td><%= link_to @riderhouse.address, show_map_riderhouse_path(@riderhouse) %></td>
+                  <% else %>
                   <td><%= @riderhouse.address %></td>
+                  <% end %>
                 <tr>
                 <tr>
                   <td>電話番号</td>
@@ -60,7 +64,7 @@
               <%= Post.new.rating_average(@riderhouse) %>
             </h4>
             <%# 口コミを表示 %>
-            <table class="table bg-white">
+            <table class="table">
               <tbody>
                 <% @posts.each do |post| %>
                 <tr>

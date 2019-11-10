@@ -6,14 +6,13 @@
 require('bootstrap')
 require('jquery')
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require('popper.js')
 
 require('../stylesheet/application')
 require('../javascript/openweathermap')
-require('../javascript/googlemap')
 
 // require.context('../images', true, /\.(png|jpg|jpeg|svg)$/);
 

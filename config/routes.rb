@@ -6,10 +6,16 @@ Rails.application.routes.draw do
   resources :users
 
   #riderhouse
-  get '/riderhouses/index_map', to: 'riderhouses#index_map'
-  resources :riderhouses
-  
-  #home
+  resources :riderhouses do
+
+    member do
+      get :show_map
+    end
+
+    collection do
+      get :index_map
+    end
+  end
   post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
 
   # post

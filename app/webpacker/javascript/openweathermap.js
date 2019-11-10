@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
   var city = 'Tokyo'; 
   var url = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&units=metric&APPID=' + gon.API_KEY_weather;
   $.ajax({
