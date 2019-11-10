@@ -13,7 +13,8 @@ html {
           min-width: 100%;
           padding-top: 50px;
           padding-bottom: 50px;
-          background-color: rgba(255, 255, 255, 0.5);
+          // background-color: rgba(255, 255, 255, 0.5);
+          background-color: rgba(163, 222, 240, 0.5);
           height: 100%;
         }
       }
@@ -26,49 +27,50 @@ html {
         .bg-mask {
           padding-top: 50px;
           padding-bottom: 50px;
-          background-color: rgba(255, 255, 255, 0.5);
+          // background-color: rgba(255, 255, 255, 0.5);
+          background-color: rgba(163, 222, 240, 0.5);
           height: 100%;
         }
       }
 
       .user-bg {
         height: 100%;
-        // background: url("<%= asset_path 'user_bg_img.jpg' %>");
         // background-image: image-url('user_bg_img.jpg');
         background-size: cover;
 
         .bg-mask {
           padding-top: 50px;
           padding-bottom: 50px;
-          background-color: rgba(255, 255, 255, 0.3);
+          // background-color: rgba(255, 255, 255, 0.5);
+          background-color: rgba(163, 222, 240, 0.5);
           height: 100%;
         }
       }
 
       .favorite-bg {
         height: 100%;
-        // background: url("<%= asset_path 'favorite_bg_img.jpg' %>");
         // background-image: image-url('favorite_bg_img.jpg');
         background-size: cover;
 
         .bg-mask {
           padding-top: 50px;
           padding-bottom: 50px;
-          background-color: rgba(255, 255, 255, 0.3);
+          // background-color: rgba(255, 255, 255, 0.5);
+          background-color: rgba(163, 222, 240, 0.5);
           height: 100%;
         }
       }
 
       .post-bg {
         height: 100%;
-        // background: url("<%= asset_path 'post_bg_img.jpg' %>");
         // background-image: image-url('post_bg_img.jpg');
         background-size: cover;
 
         .bg-mask {
           padding-top: 50px;
           padding-bottom: 50px;
-          background-color: rgba(255, 255, 255, 0.3);
+          // background-color: rgba(255, 255, 255, 0.5);
+          background-color: rgba(163, 222, 240, 0.5);
           height: 100%;
         }
       }
