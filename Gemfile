@@ -86,3 +86,5 @@ gem 'ransack'
 gem 'bootstrap-sass'
 gem 'bootstrap'
 gem 'sass-rails'
+
+gem "aws-sdk-s3", require: false
