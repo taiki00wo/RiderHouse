@@ -87,4 +87,5 @@ gem 'bootstrap-sass'
 gem 'bootstrap'
 gem 'sass-rails'
 
+# s3
 gem "aws-sdk-s3", require: false

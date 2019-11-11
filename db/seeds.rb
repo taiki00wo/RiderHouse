@@ -43,35 +43,35 @@ when_ride: '2017年4月から',
 image: open("#{Rails.root}/db/images/user_default.jpeg"))
 
 
-5.times do |i|
+for i in 1..5 do
   Riderhouse.create!(name: "riderhouse#{i}", address: '東京都品川区南大井', 
   tel: '0000-11-2222', price: 2000, opening_hours: '7:00~18:00', 
   image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
   user_id: 1)
 end
 
-5.times do |i|
-  Riderhouse.create!(name: "riderhouse#{i+5}", address: '東京都港区南青山', 
+for i in 6..10 do
+  Riderhouse.create!(name: "riderhouse#{i}", address: '東京都港区南青山', 
   tel: '1111-11-2222', price: 4000, opening_hours: '7:00~20:00', 
   image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
   user_id: 2)
 end
 
-5.times do |i|
-  Riderhouse.create!(name: "riderhouse#{i+10}", address: '東京都港区南青山', 
+for i in 11..15 do
+  Riderhouse.create!(name: "riderhouse#{i}", address: '東京都港区南青山', 
   tel: '1111-11-2222', price: 10000, opening_hours: '7:00~20:00', 
   image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
   user_id: 3)
 end
 
-10.times do |i|
-Post.create!(rating: 5, content: "とてもいい", user_id: 1, riderhouse_id: i)
+for i in 1..15 do
+  Post.create!(rating: 5, content: "とてもいい", user_id: 1, riderhouse_id: i)
 end
 
-10.times do |i|
+for i in 1..15 do
   Post.create!(rating: 3, content: "普通", user_id: 2, riderhouse_id: i)
 end
 
-10.times do |i|
+for i in 1..15 do
   Post.create!(rating: 5, content: "あまり良くない", user_id: 3, riderhouse_id: i)
 end
