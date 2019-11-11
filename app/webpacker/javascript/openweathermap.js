@@ -1,30 +1,30 @@
 $(function() {
-  var city = 'Tokyo'; 
-  var url = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&units=metric&APPID=' + gon.API_KEY_weather;
-  $.ajax({
-    url: url,
-    dataType: "json",
-    type: 'GET',
-  })
-  .done(function(data) {
-    console.log(data);
-    console.log(url);
-    var insertHTML = "";
-    var cityName = '<h2>' + data.city.name + '</h2>';
-    $('#city-name').html(cityName);
-    for (var i = 0; i <= 8; i = i + 2) {
-      insertHTML += buildHTML(data, i);
-    }
-    $('#weather').html(insertHTML);
-  })
-  .fail(function(data) {
-    console.log(data);
-    console.log(url);
-    console.log(gon.API_KEY_weather);
-    console.log('取得に失敗しました');
+  $('#city-name').change(function() {
+    var city = $('option:selected').val();
+    console.log(city);
+    var url = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&units=metric&APPID=' + gon.API_KEY_weather;
+    $.ajax({
+      url: url,
+      dataType: "json",
+      type: 'GET',
+    })
+    .done(function(data) {
+      console.log(data);
+      console.log(url);
+      var insertHTML = "";
+      for (var i = 0; i <= 8; i = i + 2) {
+        insertHTML += buildHTML(data, i);
+      }
+      $('#weather').html(insertHTML);
+    })
+    .fail(function(data) {
+      console.log(data);
+      console.log(url);
+      console.log(gon.API_KEY_weather);
+      console.log('取得に失敗しました');
+    });
   });
 });
-
 
 function buildHTML(data, i) {
   var Week = new Array("（日）","（月）","（火）","（水）","（木）","（金）","（土）");

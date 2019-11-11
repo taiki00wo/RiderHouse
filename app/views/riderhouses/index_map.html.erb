@@ -1,14 +1,28 @@
 <div class='map-bg'>
   <div class='bg-mask'>
-  
-  <%# OpenWeatherMap表示 %>
-  <div id="city-name"></div>
-  <div id="weather"></div>
-  
+    <div class="container">
+      <%# OpenWeatherMap表示 %>
+      <h4>天気予報</h4><br>
+      <select id="city-name">
+        <option value="0">選択してください</option>
+        <option value="Sapporo-shi">札幌</option>
+        <option value="Sendai-shi">仙台</option>
+        <option value="Niigata-shi">新潟</option>
+        <option value="Tokyo">東京</option>
+        <option value="kanazawa">金沢</option>
+        <option value="Nagoya-shi">名古屋</option>
+        <option value="Osaka">大阪</option>
+        <option value="Hiroshima-shi">広島</option>
+        <option value="Kochi-shi">高知</option>
+        <option value="Fukuoka-ken">福岡</option>
+        <option value="Naha-shi">那覇</option>
+      </select><br><br>
+      <div id="weather"></div>
+    </div><br>
 
-  <%# google map表示 %>
-  <div id='index-map' style="height:500px;"></div>
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%=@API_KEY_map%>&callback=getCurrentLocation" async defer></script>
+    <%# google map表示 %>
+    <div id='index-map' style="height:500px;"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=@API_KEY_map%>&callback=getCurrentLocation" async defer></script>
 
   </div>
 </div>
