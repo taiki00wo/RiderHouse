@@ -1,3 +1,2 @@
 <%# jはescape_javascript(エスケープ処理)のエイリアス %>
-console.log('create');
 $("#favorite-<%= @riderhouse.id %>").html("<%= j(render partial: 'favorites/favorite', locals: { r: @riderhouse }) %>");
