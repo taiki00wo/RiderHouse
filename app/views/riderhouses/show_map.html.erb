@@ -21,7 +21,7 @@ function initMap(){
   });
 
   infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
-    content: `<div class="show-map">${gon.riderhouse.name}</div>` // 吹き出しに表示する内容
+    content: `<div class="show-map"><%= link_to @riderhouse.name, riderhouse_path(@riderhouse) %></div>` // 吹き出しに表示する内容
   });
   marker.addListener('click', function() { // マーカーをクリックしたとき
   infoWindow.open(map, marker); // 吹き出しの表示

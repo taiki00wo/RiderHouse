@@ -43,35 +43,103 @@ when_ride: '2017年4月から',
 image: open("#{Rails.root}/db/images/user_default.jpeg"))
 
 
-for i in 1..5 do
-  Riderhouse.create!(name: "riderhouse#{i}", address: '東京都品川区南大井', 
-  tel: '0000-11-2222', price: 2000, opening_hours: '7:00~18:00', 
+
+Riderhouse.create!(name: "あづみのライダーズハウス",
+  address: '〒399-8301 長野県安曇野市穂高有明２１８６−２６０', 
+  latitude:36.5633486, longitude:138.613915,
+  tel: '0000-11-2222', price: 2500, opening_hours: '7:00~20:00', 
   image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
   user_id: 1)
-end
 
-for i in 6..10 do
-  Riderhouse.create!(name: "riderhouse#{i}", address: '東京都港区南青山', 
-  tel: '1111-11-2222', price: 4000, opening_hours: '7:00~20:00', 
+Riderhouse.create!(name: "BikePack", 
+  address: '〒410-2506 静岡県伊豆市徳永１８５−１', 
+  latitude:34.9425317, longitude:139.0255593,
+  tel: '0000-11-2222', price: 4000, opening_hours: '7:00~20:00', 
+  image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
+  user_id: 1)
+
+Riderhouse.create!(name: "ライダーハウスウィート", 
+  address: '〒377-1712 群馬県吾妻郡草津町大字前口８−１', 
+  latitude:36.5954473, longitude:138.5830834,
+  tel: '0000-11-2222', price: 1000, opening_hours: '7:00~20:00', 
+  image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
+  user_id: 1)
+
+Riderhouse.create!(name: "ライダーハウス・タカ", 
+  address: '〒413-0232 静岡県伊東市八幡野', 
+  latitude:38.1889244, longitude:139.668301,
+  tel: '0000-11-2222', price: 5000, opening_hours: '7:00~20:00', 
+  image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
+  user_id: 1)
+
+Riderhouse.create!(name: "ライダーハウス やどかり", 
+  address: '〒415-0326 静岡県賀茂郡南伊豆町蛇石５９７−１４４', 
+  latitude:35.3561, longitude:136.8337993,
+  tel: '0000-11-2222', price: 3700, opening_hours: '7:00~20:00', 
+  image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
+  user_id: 1)
+
+Riderhouse.create!(name: "最北端 みつばちの家", 
+  address: '〒097-0021 北海道稚内市港４丁目7-6', 
+  latitude:45.400105, longitude:141.677199,
+  tel: '0000-11-2222', price: 1200, opening_hours: '7:00~20:00', 
   image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
   user_id: 2)
-end
 
-for i in 11..15 do
-  Riderhouse.create!(name: "riderhouse#{i}", address: '東京都港区南青山', 
-  tel: '1111-11-2222', price: 10000, opening_hours: '7:00~20:00', 
+Riderhouse.create!(name: "旭温泉（道北）", 
+  address: '〒098-3531 北海道遠別町旭294-2', 
+  latitude:44.659942, longitude:141.860094,
+  tel: '0000-11-2222', price: 6900, opening_hours: '7:00~20:00', 
   image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
-  user_id: 3)
-end
+  user_id: 2)
 
-for i in 1..15 do
+Riderhouse.create!(name: "ライダーハウスD", 
+  address: '〒841-0072 佐賀県鳥栖市村田町723-3 オートショップダイレクト', 
+  latitude:33.356530, longitude:130.483407,
+  tel: '0000-11-2222', price: 5600, opening_hours: '7:00~20:00', 
+  image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
+  user_id: 2)
+
+Riderhouse.create!(name: "下北山スポーツ公園", 
+  address: '奈良県吉野郡下北山村上池原1026', 
+  latitude:34.047777, ongitude:135.962677,
+  tel: '0000-11-2222', price: 2200, opening_hours: '7:00~20:00', 
+  image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
+  user_id: 2) 
+
+Riderhouse.create!(name: "ライダーハウスぱゆ", 
+  address: '〒296-0112 千葉県鴨川市宮山1385', 
+  latitude:35.121011, ongitude:140.019388,
+  tel: '0000-11-2222', price: 3300, opening_hours: '7:00~20:00', 
+  image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
+  user_id: 3) 
+
+
+for i in 1..10 do
   Post.create!(rating: 5, content: "とてもいい", user_id: 1, riderhouse_id: i)
 end
 
-for i in 1..15 do
+for i in 1..10 do
   Post.create!(rating: 3, content: "普通", user_id: 2, riderhouse_id: i)
 end
 
-for i in 1..15 do
+for i in 1..10 do
   Post.create!(rating: 5, content: "あまり良くない", user_id: 3, riderhouse_id: i)
 end
+
+Favorite.create!(user_id: 1, riderhouse_id: 1)
+Favorite.create!(user_id: 1, riderhouse_id: 3)
+Favorite.create!(user_id: 1, riderhouse_id: 4)
+Favorite.create!(user_id: 1, riderhouse_id: 10)
+Favorite.create!(user_id: 2, riderhouse_id: 3)
+Favorite.create!(user_id: 2, riderhouse_id: 4)
+Favorite.create!(user_id: 2, riderhouse_id: 6)
+Favorite.create!(user_id: 2, riderhouse_id: 8)
+Favorite.create!(user_id: 2, riderhouse_id: 9)
+Favorite.create!(user_id: 3, riderhouse_id: 3)
+Favorite.create!(user_id: 3, riderhouse_id: 5)
+Favorite.create!(user_id: 3, riderhouse_id: 1)
+Favorite.create!(user_id: 3, riderhouse_id: 8)
+Favorite.create!(user_id: 3, riderhouse_id: 10)
+
+
