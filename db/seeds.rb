@@ -115,17 +115,21 @@ Riderhouse.create!(name: "ライダーハウスぱゆ",
   user_id: 3) 
 
 
-for i in 1..10 do
-  Post.create!(rating: 5, content: "とてもいい", user_id: 1, riderhouse_id: i)
-end
+Post.create!(rating: 5, content: "料理が美味しかった。", user_id: 1, riderhouse_id: 2)
+Post.create!(rating: 4, content: "景色が綺麗", user_id: 2, riderhouse_id: 5)
+Post.create!(rating: 5, content: "掃除が行き届いている", user_id: 3, riderhouse_id: 6)
+Post.create!(rating: 4, content: "おすすめです。", user_id: 1, riderhouse_id: 9)
+Post.create!(rating: 5, content: "とてもいい。また来たいです。", user_id: 2, riderhouse_id: 10)
+Post.create!(rating: 4, content: "いい感じのライダーハウスです。", user_id: 3, riderhouse_id: 1)
+Post.create!(rating: 3, content: "近くにコンビニがあります。", user_id: 2, riderhouse_id: 4)
+Post.create!(rating: 4, content: "普通のライダーハウスです", user_id: 2, riderhouse_id: 5)
+Post.create!(rating: 3, content: "普通", user_id: 1, riderhouse_id: 7)
+Post.create!(rating: 1, content: "あまり良くない", user_id: 1, riderhouse_id: 1)
+Post.create!(rating: 2, content: "連絡しても、電話に出なかった。", user_id: 3, riderhouse_id: 3)
+Post.create!(rating: 1, content: "いびきがうるさい人がいた", user_id: 2, riderhouse_id: 5)
+Post.create!(rating: 2, content: "あまり良くない", user_id: 2, riderhouse_id: 2)
+Post.create!(rating: 1, content: "場所がわかりずらい", user_id: 3, riderhouse_id: 8)
 
-for i in 1..10 do
-  Post.create!(rating: 3, content: "普通", user_id: 2, riderhouse_id: i)
-end
-
-for i in 1..10 do
-  Post.create!(rating: 5, content: "あまり良くない", user_id: 3, riderhouse_id: i)
-end
 
 Favorite.create!(user_id: 1, riderhouse_id: 1)
 Favorite.create!(user_id: 1, riderhouse_id: 3)
