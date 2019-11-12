@@ -102,14 +102,14 @@ Riderhouse.create!(name: "ライダーハウスD",
 
 Riderhouse.create!(name: "下北山スポーツ公園", 
   address: '奈良県吉野郡下北山村上池原1026', 
-  latitude:34.047777, ongitude:135.962677,
+  latitude:34.047777, longitude:135.962677,
   tel: '0000-11-2222', price: 2200, opening_hours: '7:00~20:00', 
   image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
   user_id: 2) 
 
 Riderhouse.create!(name: "ライダーハウスぱゆ", 
   address: '〒296-0112 千葉県鴨川市宮山1385', 
-  latitude:35.121011, ongitude:140.019388,
+  latitude:35.121011, longitude:140.019388,
   tel: '0000-11-2222', price: 3300, opening_hours: '7:00~20:00', 
   image: open("#{Rails.root}/db/images/riderhouse_default.jpeg"),
   user_id: 3) 
