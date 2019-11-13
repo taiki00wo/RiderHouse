@@ -1,7 +1,8 @@
 class RiderhousesController < ApplicationController
   def index
-    if params[:q].present?
-      @search = Riderhouse.ransack(params[:q])
+    #ソート
+    if params[:q][:sorts].present?
+      @search = Riderhouse.ransack(params[:q][:sorts])
       # お気に入りの数でソート
       if params[:q] == {"sorts"=>"favorites_count desc"}
         @riderhouses = Riderhouse.find(Favorite.group(:riderhouse_id).order('count(riderhouse_id) desc').pluck(:riderhouse_id))
@@ -10,13 +11,20 @@ class RiderhousesController < ApplicationController
         @riderhouses = Riderhouse.find(Post.group(:riderhouse_id).order('count(riderhouse_id) desc').pluck(:riderhouse_id))
       end
       @riderhouses = @search.result
+      @riderhouses = @riderhouses.page(params[:page]).per(8)
+    #検索
+    elsif params[:q].present?
+      @search = Riderhouse.ransack(params[:q])
+      @riderhouses = @search.result
+      @riderhouses = @riderhouses.page(params[:page]).per(8)
       flash[:notice] = "検索結果は#{@riderhouses.count}件です。"
+    #初期表示
     else
       params[:q] = { sorts: 'id desc' }
       @search = Riderhouse.ransack(params[:q])
-      @riderhouses = Riderhouse.all
+      @riderhouses = @search.result
+      @riderhouses = @riderhouses.page(params[:page]).per(8)
     end
-    @riderhouses = @riderhouses.page(params[:page]).per(8)
   end
 
   def index_map

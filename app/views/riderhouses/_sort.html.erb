@@ -1,4 +1,4 @@
-<dl class="searchbox">
+<dl class="sortbox">
   <%= search_form_for @search do |f| %>
     <dt><%= f.select( :sorts, 
     { '並び替え': 'id desc', 
@@ -10,6 +10,6 @@
       'お気に入り登録者数の多い順': 'favorites_count desc',
       '口コミの多い順': 'posts_count desc' },
     { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %></dt>
-    <dd><%= f.submit ("ソート") , class: 'search-btn'%></dd>
+    <dd><%= f.submit ("ソート") , class: 'sort-btn'%></dd> 
   <% end %>
 </dl>
