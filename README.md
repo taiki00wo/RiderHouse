@@ -6,7 +6,7 @@
 Ruby 2.6.4  
 Rails 6.0.0  
   
-rspec+capybarafactory_bot_rails  
+rspec+capybara+factory_bot_rails  
   
 webpacker  
 bootstrap  
@@ -31,16 +31,16 @@ rubocop-rails
 ・お気に入りの数でソート(ransackのソートはテーブルの各カラムならすぐ実装できるが、assosiationを使って関連付けているテーブルだと使用することができない。  
 そこで、SQLのGROUPとCOUNT、ORDERでライダーハウスのお気に入りの数で実装した。)    
 ・googlemapの中心位置を位置情報に設定する。(取得できなかった場合は、東京に設定。)    
-・googlemapのライダーハウスの住所の位置にピンを表示する。
+・googlemapのライダーハウスの住所の位置にピンを表示する。　　
+・openweathermapの天気をajaxで変更できるようにする。　　
   
 # 苦労した点  
 ・rails6がリリースしたばかりのため、ドキュメントが少なかったので、bootstrapやjqueryの導入で苦労した。rails5ではアセットを使用していたが、rails6では、
 　webpackerとアセットの併用がデフォルトであり、統一するのに苦労した。    
 ・googlemapが正しく表示されないことがあった。(turbolinkを無効。callbackでinitMapを呼び出すことで解決。)  
   
-# 今後の課題  
-・openweathermapの天気をajaxで変更できるようにする。(現在は固定で東京の天気を表示しているようにしているので、全国の天気をユーザーが選択して表示できるようにする。)    
+# 今後の課題   
 ・herokuでのデプロイをawsに変更する。    
 ・Twitterと連携する。    
 ・production環境で背景画像が表示されない。  
-・geocoderの精度が低く住所から緯度・経度が取得されないことがある。  
+・gem geocoderが使用できない。(rails6が原因？)  
