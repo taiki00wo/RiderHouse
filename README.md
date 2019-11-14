@@ -32,7 +32,8 @@ rubocop-rails
 そこで、SQLのGROUPとCOUNT、ORDERでライダーハウスのお気に入りの数で実装した。)    
 ・googlemapの中心位置を位置情報に設定する。(取得できなかった場合は、東京に設定。)    
 ・googlemapのライダーハウスの住所の位置にピンを表示する。　　
-・openweathermapの天気をajaxで変更できるようにする。　　
+・openweathermapの天気をajaxで変更できるようにする。  
+・production環境での背景画像の表示。  
   
 # 苦労した点  
 ・rails6がリリースしたばかりのため、ドキュメントが少なかったので、bootstrapやjqueryの導入で苦労した。rails5ではアセットを使用していたが、rails6では、
@@ -42,5 +43,4 @@ rubocop-rails
 # 今後の課題   
 ・herokuでのデプロイをawsに変更する。    
 ・Twitterと連携する。    
-・production環境で背景画像が表示されない。  
 ・gem geocoderが使用できない。(rails6が原因？)  
