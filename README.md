@@ -36,8 +36,7 @@ rubocop-rails
 ・production環境での背景画像の表示。  
   
 # 苦労した点  
-・rails6がリリースしたばかりのため、ドキュメントが少なかったので、bootstrapやjqueryの導入で苦労した。rails5ではアセットを使用していたが、rails6では、
-　webpackerとアセットの併用がデフォルトであり、統一するのに苦労した。    
+・rails6がリリースしたばかりのため、ドキュメントが少なかったので、bootstrapやjqueryの導入で苦労した。rails5ではアセットを使用していたが、rails6では、webpackerとアセットの併用がデフォルトであり、統一するのに苦労した。  
 ・googlemapが正しく表示されないことがあった。(turbolinkを無効。callbackでinitMapを呼び出すことで解決。)  
   
 # 今後の課題   
