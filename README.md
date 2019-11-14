@@ -29,9 +29,9 @@ rubocop-rails
 ・rspecでcontrollerとmodelのテストを実施した。     
 ・お気に入り登録・解除をajaxで実装した。      
 ・お気に入りの数でソート(ransackのソートはテーブルの各カラムならすぐ実装できるが、assosiationを使って関連付けているテーブルだと使用することができない。
-そこで、SQLのGROUPとCOUNT、ORDERでライダーハウスのお気に入りの数で実装した。)    
+そこで、SQLのGROUPとCOUNT、ORDERでライダーハウスのお気に入りの数で実装した。)  
 ・googlemapの中心位置を位置情報に設定する。(取得できなかった場合は、東京に設定。)    
-・googlemapのライダーハウスの住所の位置にピンを表示する。　　
+・googlemapのライダーハウスの住所の位置にピンを表示する。  
 ・openweathermapの天気をajaxで変更できるようにする。  
 ・production環境での背景画像の表示。  
   
