@@ -14,7 +14,7 @@ require('popper.js')
 require('../stylesheet/application')
 require('../javascript/openweathermap')
 
-// require.context('../images', true, /\.(png|jpg|jpeg|svg)$/);
+require.context('../images', true, /\.(png|jpg|jpeg|svg)$/);
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
