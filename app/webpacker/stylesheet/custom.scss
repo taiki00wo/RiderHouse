@@ -13,64 +13,59 @@ html {
           min-width: 100%;
           padding-top: 50px;
           padding-bottom: 50px;
-          // background-color: rgba(255, 255, 255, 0.5);
-          background-color: rgba(163, 222, 240, 0.5);
+          background-color: rgba(255, 255, 255, 0.5);
           height: 100%;
         }
       }
 
       .map-bg {
         height: 100%;
-        // background-image: image-url('riderhouse_bg_img.jpg');
+        background-image: url('../images/riderhouse_bg_img.jpg');
         background-size: cover;
 
         .bg-mask {
           padding-top: 50px;
           padding-bottom: 50px;
-          // background-color: rgba(255, 255, 255, 0.5);
-          background-color: rgba(163, 222, 240, 0.5);
+          background-color: rgba(255, 255, 255, 0.5);
           height: 100%;
         }
       }
 
       .user-bg {
         height: 100%;
-        // background-image: image-url('user_bg_img.jpg');
+        background-image: url('../images/user_bg_img.jpg');
         background-size: cover;
 
         .bg-mask {
           padding-top: 50px;
           padding-bottom: 50px;
-          // background-color: rgba(255, 255, 255, 0.5);
-          background-color: rgba(163, 222, 240, 0.5);
+          background-color: rgba(255, 255, 255, 0.5);
           height: 100%;
         }
       }
 
       .favorite-bg {
         height: 100%;
-        // background-image: image-url('favorite_bg_img.jpg');
+        background-image: url('../images/favorite_bg_img.jpg');
         background-size: cover;
 
         .bg-mask {
           padding-top: 50px;
           padding-bottom: 50px;
-          // background-color: rgba(255, 255, 255, 0.5);
-          background-color: rgba(163, 222, 240, 0.5);
+          background-color: rgba(255, 255, 255, 0.5);
           height: 100%;
         }
       }
 
       .post-bg {
         height: 100%;
-        // background-image: image-url('post_bg_img.jpg');
+        background-image: url('../images/post_bg_img.jpg');
         background-size: cover;
 
         .bg-mask {
           padding-top: 50px;
           padding-bottom: 50px;
-          // background-color: rgba(255, 255, 255, 0.5);
-          background-color: rgba(163, 222, 240, 0.5);
+          background-color: rgba(255, 255, 255, 0.5);
           height: 100%;
         }
       }
