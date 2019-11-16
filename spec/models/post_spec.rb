@@ -46,7 +46,7 @@ RSpec.describe Post, type: :model do
 
       it '正しい評価の平均が返ってくること' do
         post = Post.new
-        expect(post.rating_average(@riderhouse)).to eq('評価：3.5')
+        expect(post.rating_average(@riderhouse)).to eq('評価：3.5/5.0')
       end
     end
 

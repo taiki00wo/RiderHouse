@@ -6,7 +6,7 @@ RSpec.describe Riderhouse, type: :model do
   end
 
   describe 'validation' do
-    it '名前、住所、電話番号があれば有効であること' do
+    it '名前あれば有効であること' do
       expect(@riderhouse).to be_valid
     end
 
@@ -16,16 +16,16 @@ RSpec.describe Riderhouse, type: :model do
       expect(@riderhouse.errors[:name]).to include('を入力してください')
     end
 
-    it '住所が無ければ無効であること' do
-      @riderhouse.address = nil
-      @riderhouse.valid?
-      expect(@riderhouse.errors[:address]).to include('を入力してください')
-    end
+    # it '住所が無ければ無効であること' do
+    #   @riderhouse.address = nil
+    #   @riderhouse.valid?
+    #   expect(@riderhouse.errors[:address]).to include('を入力してください')
+    # end
 
-    it '電話番号が無ければ無効であること' do
-      @riderhouse.tel = nil
-      @riderhouse.valid?
-      expect(@riderhouse.errors[:tel]).to include('を入力してください')
-    end
+    # it '電話番号が無ければ無効であること' do
+    #   @riderhouse.tel = nil
+    #   @riderhouse.valid?
+    #   expect(@riderhouse.errors[:tel]).to include('を入力してください')
+    # end
   end
 end

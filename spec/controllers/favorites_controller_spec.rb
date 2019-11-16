@@ -42,9 +42,9 @@ RSpec.describe FavoritesController, type: :controller do
 
       it 'お気に入りを追加できること' do
         sign_in @user
-        expect do
-          post :create, params: { riderhouse_id: @riderhouse.id }
-        end.to change(Favorite, :count).by(1)
+        expect {
+          post :create, params: { user_id: @user.id, riderhouse_id: @riderhouse.id}
+        }.to change(Favorite, :count).by(1)
       end
     end
   end
@@ -57,7 +57,6 @@ RSpec.describe FavoritesController, type: :controller do
       end
 
       it 'お気に入りを削除できること' do
-        riderhouse_params = FactoryBot.attributes_for(:riderhouse)
         sign_in @user
         expect do
           delete :destroy, params: { id: @favorite.id }

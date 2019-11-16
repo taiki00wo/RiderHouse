@@ -72,9 +72,9 @@ RSpec.describe RiderhousesController, type: :controller do
       end
 
       it 'ライダーハウスを更新できること' do
-        riderhouse_params = FactoryBot.attributes_for(:riderhouse,
-                                                      name: 'New Riderhouse Name')
         sign_in @user
+        riderhouse_params = FactoryBot.attributes_for(:riderhouse,
+          name: 'New Riderhouse Name')
         patch :update, params: { id: @riderhouse.id, riderhouse: riderhouse_params }
         expect(@riderhouse.reload.name).to eq 'New Riderhouse Name'
       end
