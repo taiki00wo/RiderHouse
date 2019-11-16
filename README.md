@@ -42,6 +42,7 @@ rubocop-rails
 ・googlemapが正しく表示されないことがあった。(turbolinkを無効。callbackでinitMapを呼び出すことで解決。)  
   
 # 今後の課題   
-・herokuでのデプロイをawsに変更する。    
+・herokuでのデプロイをawsに変更する。  
+・フロントにvue.jsを使う。  
 ・Twitterと連携する。    
 ・gem geocoderが使用できない。(rails6が原因？)  
