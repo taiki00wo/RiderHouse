@@ -2,46 +2,52 @@
   <div class='bg-mask'>
     <div class="container">
       <div class="row">
+
+        <div class="col-lg-3">
+          <%= link_to 'ユーザーのプロフィールを見る', user_path(@user), class: 'btn btn-primary' %><br><br><br>
+          <%= link_to 'メッセージルームへ行く', user_message_path(@user), class: 'btn btn-primary' %>  
+        </div>
+        
         <div class="col-lg-6">
-        <table class="table">
-          <tbody>
-            <tr>
-              <% if @user.image? %>
-                <td><%= image_tag @user.image.url, :size =>'50x50', class: 'rounded-circle' %>&nbsp;&nbsp;<%= @user.name %></td>
-              <% else %>
-                <td><%= image_tag '/images/user_default.jpeg', :size =>'50x50', class: 'rounded-circle' %>&nbsp;&nbsp;<%= @user.name %></td>
-              <% end %>
-            </tr>
-            <tr>
-              <td>性別</td>
-              <td><%= @user.gender %></td>
-            <tr>
-            <tr>
-              <td>年齢</td>
-              <td><%= @user.age %></td>
-            <tr>
-            <tr>
-              <td>乗ってるバイク</td>
-              <td><%= @user.bike_name %></td>
-            <tr>
-            <tr>
-              <td>いつから乗ってる？</td>
-              <td><%= @user.when_ride %></td>
-            <tr>
-            <tr>
-              <td>住んでる所</td>
-              <td><%= @user.location %></td>
-            <tr>
-            <tr>
-              <td>お気に入りの道</td>
-              <td><%= @user.favorite_load %></td>
-            <tr>
-            <tr>
-              <td>Twitterアカウント</td>
-              <td><%= @user.twitter_id %></td>
-            <tr>
-          </tbody>
-        </table>
+          <table class="table">
+            <tbody>
+              <tr>
+                <% if @user.image? %>
+                  <td><%= image_tag @user.image.url, :size =>'50x50', class: 'rounded-circle' %>&nbsp;&nbsp;<%= @user.name %></td>
+                <% else %>
+                  <td><%= image_tag '/images/user_default.jpeg', :size =>'50x50', class: 'rounded-circle' %>&nbsp;&nbsp;<%= @user.name %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td>性別</td>
+                <td><%= @user.gender %></td>
+              <tr>
+              <tr>
+                <td>年齢</td>
+                <td><%= @user.age %></td>
+              <tr>
+              <tr>
+                <td>乗ってるバイク</td>
+                <td><%= @user.bike_name %></td>
+              <tr>
+              <tr>
+                <td>いつから乗ってる？</td>
+                <td><%= @user.when_ride %></td>
+              <tr>
+              <tr>
+                <td>住んでる所</td>
+                <td><%= @user.location %></td>
+              <tr>
+              <tr>
+                <td>お気に入りの道</td>
+                <td><%= @user.favorite_load %></td>
+              <tr>
+              <tr>
+                <td>Twitterアカウント</td>
+                <td><%= @user.twitter_id %></td>
+              <tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

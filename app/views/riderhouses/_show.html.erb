@@ -1,0 +1,59 @@
+<% if @riderhouse.image? %>
+  <%= image_tag @riderhouse.image.url, :size =>'500x375' %>
+<% else %>
+  <%= image_tag '/images/riderhouse_default.png', :size =>'500x375' %>
+<% end %> 
+
+<div class="table-responsive">
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>名称</td>
+        <td><%= @riderhouse.name %></td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <% if @riderhouse.latitude && @riderhouse.longitude %>
+        <td><%= link_to @riderhouse.address, show_map_riderhouse_path(@riderhouse) %></td>
+        <% else %>
+        <td><%= @riderhouse.address %></td>
+        <% end %>
+      <tr>
+      <tr>
+        <td>電話番号</td>
+        <td><%= @riderhouse.tel %></td>
+      </tr>
+      <tr>
+        <td>価格</td>
+        <td><%= @riderhouse.price %></td>
+      </tr>
+      <tr>
+        <td>営業時間</td>
+        <td><%= @riderhouse.opening_hours %></td>
+      </tr>
+      <tr>
+        <td>評価</td>
+        <td><%= Post.new.rating_average(@riderhouse) %></td>
+      </tr>
+      <tr>
+        <td>口コミ</td>
+        <td><%= @riderhouse.posts.count %>件</td>
+      </tr>
+
+      <tr class="no-underline">
+      <% if @riderhouse.user_id == current_user.id %>
+        <td>
+          <%= link_to edit_riderhouse_path(@riderhouse) do %>
+            <i class="fas fa-edit fa-5x"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to riderhouse_path(@riderhouse), method: :delete, data: { confirm: "#{@riderhouse.name}を削除してよろしいですか？" } do %>
+            <i class="fas fa-trash fa-5x"></i>
+          <% end %>  
+        </td>
+      <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>

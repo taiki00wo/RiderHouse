@@ -1,0 +1,36 @@
+<% @messages.each do |message| %>
+
+  <% user_from = User.find_by(id: message.from_id) %>
+  <% from_id = message.from_id %>
+  <% current_user_id = current_user.id %> 
+  <% if from_id == current_user_id %>
+    <% balloon = 'balloon-right' %>
+  <% else%>
+    <% balloon = 'balloon-left' %>
+  <% end %>
+
+  <div class="<%= message.id %>"> 
+    <% if user_from.image? %>
+      <%= image_tag user_from.image.url, :size =>'30x30', class: 'rounded-circle' %>
+    <% else %>
+      <%= image_tag '/images/user_default.jpeg', :size =>'30x30', class: 'rounded-circle' %>
+    <% end %>
+    <%= user_from.name %><br>
+    <div class="<%= balloon %>">
+      <p><%= message.content %></p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var from_id = <%= message.from_id %>;
+    var current_user_id = <%= current_user.id %>;
+    if(from_id == current_user_id){
+      console.log(from_id);
+      console.log(current_user_id);
+      $('.<%= message.id %>').css('text-align', 'right');
+    }else{
+      $('.<%= message.id %>').css('text-align', 'left');
+    }
+  </script>
+
+<% end %>

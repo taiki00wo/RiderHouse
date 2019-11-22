@@ -23,6 +23,11 @@ Rails.application.routes.draw do
     resources :posts
   end
 
+  #message
+  resources :user do
+    resources :messages, only: [:new, :create, :show]
+  end
+
   # favorite
   resources :riderhouse do
     resources :favorites, only: [:create]

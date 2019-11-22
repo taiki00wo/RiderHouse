@@ -44,6 +44,7 @@ class RiderhousesController < ApplicationController
   def show
     @riderhouse = Riderhouse.find(params[:id])
     @posts = @riderhouse.posts
+    @post = Post.new
   end
 
   def new

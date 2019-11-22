@@ -1,0 +1,31 @@
+<div class='user-bg'>
+  <div class='bg-mask'>
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-3">
+          <%= link_to 'ユーザーのプロフィールを見る', user_path(@user), class: 'btn btn-primary' %><br><br><br>
+          <%= link_to 'メッセージルームへ行く', user_message_path(@user), class: 'btn btn-primary' %>  
+        </div>
+        <div class="col-lg-6">
+          <div class="overflow-auto message" style="height:500px;">
+          
+            <%# メッセージを表示 %>
+            <div id="message-index">
+              <%= render partial: "messages/message", 
+              locals: { @messages => @messages, from_user: current_user, to_user: @user, room_id: @room_id } %>
+            </div>
+          </div>
+          <%# メッセージフォーム %>
+          <%= render partial: "messages/form", locals: { @user => @user } %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>  
+  
+  
+  
+  
+  

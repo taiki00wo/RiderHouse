@@ -1,0 +1,6 @@
+<%= form_with model: @message, url: user_messages_path(@user), method: :post, :remote => true do |f| %>
+  <div class="form-group">
+    <%= f.text_area :content, class: 'form-control' %>
+  </div>
+  <%= f.submit "送信する", class: 'btn btn-primary' %>
+<% end %>
