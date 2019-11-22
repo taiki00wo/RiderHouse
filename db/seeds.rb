@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(
-name: "test1",
-email: "test1@email.com",
+name: "guest",
+email: "guest@example.com",
 password: 'password', 
 bike_name: 'cb400sf',
 location: '東京都',
@@ -16,6 +16,18 @@ gender: '男',
 age: '23',
 favorite_load: 'オロロンライン',
 when_ride: '2018年4月から',
+image: open("#{Rails.root}/db/images/user_default.jpeg"))
+
+User.create!(
+name: "test1",
+email: "test1@email.com",
+password: 'password', 
+bike_name: 'gsx400',
+location: '大阪府',
+gender: '男',
+age: '30',
+favorite_load: 'オロロンライン',
+when_ride: '2015年4月から',
 image: open("#{Rails.root}/db/images/user_default.jpeg"))
 
 User.create!(

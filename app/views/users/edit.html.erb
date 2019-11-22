@@ -2,6 +2,9 @@
   <div class='bg-mask'>
     <div class="container">
       <div class="row">
+
+        <div class="col-lg-3"></div>
+
         <div class="col-lg-6">
           <table class="table">
             <tbody>
@@ -17,12 +20,12 @@
 
                 <tr>
                   <td><%= f.label :bike_name, "乗ってるバイク" %></td>
-                  <td><%= f.text_field :bike_name, class: 'form-control' %></td>
+                  <td><%= f.text_field :bike_name, :placeholder => '例：cb400sf', class: 'form-control' %></td>
                 </tr>
 
                 <tr>
                   <td><%= f.label :location, "住んでるところ" %></td>
-                  <td><%= f.text_field :location, class: 'form-control' %></td>
+                  <td><%= f.text_field :location, :placeholder => '例：東京都', class: 'form-control' %></td>
                 </tr>
 
                 <tr>
@@ -32,22 +35,22 @@
 
                 <tr>
                   <td><%= f.label :age, "年齢" %></td>
-                  <td><%= f.text_field :age, class: 'form-control' %></td>
+                  <td><%= f.text_field :age, :placeholder => '例：22', class: 'form-control' %></td>
                 </tr>
 
                 <tr>
                   <td><%= f.label :favorite_load, "お気に入りの道" %></td>
-                  <td><%= f.text_field :favorite_load, class: 'form-control' %></td>
+                  <td><%= f.text_field :favorite_load, :placeholder => '例：オロロンライン', class: 'form-control' %></td>
                 </tr>
 
                 <tr>
                   <td><%= f.label :when_ride, "いつからバイクに乗ってる？" %></td>
-                  <td><%= f.text_field :when_ride, class: 'form-control' %></td>
+                  <td><%= f.text_field :when_ride, :placeholder => '例：2017年11月', class: 'form-control' %></td>
                 </tr>
 
                 <tr>
                   <td><%= f.label :twitter_id, "Twitterアカウント" %></td>
-                  <td><%= f.text_field :twitter_id, class: 'form-control' %></td>
+                  <td><%= f.text_field :twitter_id, :placeholder => '例：@xxxxxxxxxx', class: 'form-control' %></td>
                 </tr>
 
                 <tr>

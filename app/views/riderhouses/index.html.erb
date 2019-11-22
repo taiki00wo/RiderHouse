@@ -1,11 +1,16 @@
 <div class='riderhouse-bg'>
   <div class='bg-mask'>
 
-    <%= render 'riderhouses/search' %>
-    <%= render 'riderhouses/sort' %>
-
     <%# ライダーハウス一覧の表示 %>
     <div class="container">
+
+      <div class="row">
+        <div class=" col-lg-4"></div>
+        <div class=" col-lg-4">
+          <%= render 'riderhouses/search' %>
+          <%= render 'riderhouses/sort' %>
+        </div>
+
       <div class="row">
         <% @riderhouses.each do |r| %>
           <div class="col-sm-6 col-lg-3">
