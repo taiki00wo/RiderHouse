@@ -5,7 +5,9 @@
 
         <div class="col-lg-3">
           <%= link_to 'ユーザーのプロフィールを見る', user_path(@user), class: 'btn btn-primary' %><br><br><br>
-          <%= link_to 'メッセージルームへ行く', user_message_path(@user), class: 'btn btn-primary' %>  
+          <% if @user.id != current_user.id %>
+            <%= link_to 'メッセージルームへ行く', user_message_path(@user), class: 'btn btn-primary' %>  
+          <% end %>
         </div>
         
         <div class="col-lg-6">

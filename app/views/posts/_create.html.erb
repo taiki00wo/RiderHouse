@@ -1,26 +1,35 @@
-<table class="table">
-  <tbody>
-    <% @posts.each do |post| %>
-    <tr>
-      <% if post.user.image? %>
-        <td><%= link_to image_tag(post.user.image.url, :size =>'50x50'), user_path(post.user), class: 'rounded-circle' %></td>
-      <% else %>
-        <td><%= link_to image_tag('/images/user_default.jpeg', :size =>'50x50'), user_path(post.user), class: 'rounded-circle' %></td>
-      <% end %>
-      <td>名前：<%= post.user.name %></td>
-    </tr>
-    <tr>
-      <td>評価</td>
-      <td><%= post.rating %></td>
-    </tr>
-    <tr>
-      <td>口コミ</td>
-      <td><%= post.content %></td>
-    <tr>
-    <tr>
-      <td></td>
-      <td></td>
-    <tr>
-    <% end %>
-  </tbody>
-</table>
+<% @posts.each do |post| %>
+  <table class="table post-index">
+    <tbody>
+      <tr>  
+        <% if post.user.image? %>
+          <td>
+            <div class="user-img">  
+              <%= link_to image_tag(post.user.image.url, :size =>'50x50'), user_path(post.user) %>
+            </div>  
+          </td>
+        <% else %>
+          <td>
+            <div class="user-img">  
+              <%= link_to image_tag('/images/user_default.jpeg', :size =>'50x50'), user_path(post.user) %>
+            </div>
+          </td>
+        <% end %>
+      
+        <td>名前：<%= post.user.name %></td>
+      </tr>
+      <tr>
+        <td>評価</td>
+        <td><%= post.rating %></td>
+      </tr>
+      <tr>
+        <td>口コミ</td>
+        <td><%= post.content %></td>
+      <tr>
+      <tr>
+        <td></td>
+        <td></td>
+      <tr>
+    </tbody>
+  </table>
+<% end %>

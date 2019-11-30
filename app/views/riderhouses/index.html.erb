@@ -10,46 +10,60 @@
           <%= render 'riderhouses/search' %>
           <%= render 'riderhouses/sort' %>
         </div>
+      </div>
 
-      <div class="row">
-        <% @riderhouses.each do |r| %>
-          <div class="col-sm-6 col-lg-3">
-            <div class="table-responsiv">
-            　<table class="table">
-                <tbody>
-                  <tr>
-                    <% if r.image? %>
-                      <th><%= link_to image_tag(r.image.url, :size =>'240x180'), riderhouse_path(r) %></th>
-                    <% else %>
-                      <th><%= link_to image_tag('/images/riderhouse_default.png', :size =>'240x180'), riderhouse_path(r) %></th>
-                    <% end %>
-                  </tr>
+      <div class="riderhouse-index">
+        <div class="row">
+          <% @riderhouses.each do |r| %>
+            <div class="col-sm-6 col-lg-3">
+              <div class="table-responsiv">
+              　<table class="table">
+                  <tbody>
+                    <tr>
+                      
+                        <% if r.image? %>
+                          <th>
+                            <div class="riderhouse-img">
+                              <%= link_to image_tag(r.image.url, :size =>'240x180'), riderhouse_path(r) %>
+                            </div>
+                          </th>
+                        <% else %>
+                          <th>
+                            <div class="riderhouse-img">  
+                              <%= link_to image_tag('/images/riderhouse_default.png', :size =>'240x180'), riderhouse_path(r) %>
+                            </div>  
+                          </th>
+                        <% end %>
+                    
+                    </tr>
 
-                  <tr>
-                    <td>
-                      <%= link_to r.name, riderhouse_path(r) %>
-                      <span id="favorite-<%= r.id %>">
-                        <%= render partial: "favorites/favorite", locals: { r: r } %>
-                      </span>
-                    </td>
-                  </tr>
+                    <tr>
+                      <td>
+                        <%= link_to r.name, riderhouse_path(r) %>
+                        <span id="favorite-<%= r.id %>">
+                          <%= render partial: "favorites/favorite", locals: { r: r } %>
+                        </span>
+                      </td>
+                    </tr>
 
-                  <tr>
-                    <td>
-                      <%= "口コミ#{r.posts.count}件" %><br>
-                      <%= Post.new.rating_average(r) %><br>
-                      <%= "お気に入り登録者数#{r.favorites.count}人" %><br>
-                    </td>
-                  </tr>
+                    <tr>
+                      <td>
+                        <%= "口コミ#{r.posts.count}件" %><br>
+                        <%= Post.new.rating_average(r) %><br>
+                        <%= "お気に入り登録者数#{r.favorites.count}人" %><br>
+                      </td>
+                    </tr>
 
-                </tbody>
-              </table>
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   <%# ページネーション %>
+  <br><br>
   <%= paginate @riderhouses %>
   </div>
 </div>

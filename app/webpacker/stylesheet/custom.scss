@@ -5,20 +5,131 @@ html {
     main {
       height: 100%;
       .riderhouse-bg {
-        min-height: 100%;
         background-image: url('../images/riderhouse_bg_img.jpg');
         background-size: cover;
+        min-height: 100%;
+        
 
         .bg-mask {
           padding-top: 50px;
           padding-bottom: 50px;
           background-color: rgba(255, 255, 255, 0.5);
           height: 100%;
+
+          // ライダーハウス画像
+          .riderhouse-img {
+            img {
+              border: 1px solid #ddd;
+              transition-duration: 0.5s;
+              cursor: pointer;
+              &:hover {
+                box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+                transform: translateY(-10px);
+                transition-duration: 0.5s;
+              }
+            }
+          }
+
+          // ユーザー画像
+          .user-img {
+            img {
+              border-radius: 50%;
+              border: 1px solid #ddd;
+              overflow: hidden;
+              background: #000;
+              cursor: pointer;
+              transition-duration: 0.3s;
+            }
+            &:hover{
+              opacity: 0.6;
+              transition-duration: 0.3s;
+            }
+          }
+
+          // ソートボックス
+          dl.sortbox {
+            margin-left: 20px;
+            width: 200px;
+            position: relative;
+            border-radius: 6px;
+
+            dt input {
+              width: 70%;
+              height: 33px;
+              line-height: 33px;
+              background: none;
+              border: none;
+            }
+
+            .sort-btn {
+              display: none;
+            }
+          }
+
+          /* 検索ボックス */
+          dl.searchbox {
+            margin-left: 20px;
+            width: 300px;
+            position: relative;
+            background-color: #fff;
+            border-radius: 6px;
+
+            dt input {
+              width: 70%;
+              height: 33px;
+              line-height: 33px;
+              background: none;
+              border: none;
+            }
+
+            dt select {
+              width: 70%;
+              height: 33px;
+              line-height: 33px;
+              background: none;
+              border: none;
+            }
+            
+            dd {
+              position: absolute;
+              top: 0px;
+              right: 0px;
+              width: 30%;
+            }
+
+            .search-btn {
+              padding: none;
+              display: block;
+              background: #17a2b8;
+              width: 100%;
+              line-height: 30px;
+              border: none;
+              border-radius: 0 6px 6px 0;
+              color: #fff;
+
+              &:hover {
+                background: #0b616e;
+              }
+            }
+            
+            button {
+              background-color: transparent;
+              border: none;
+              cursor: pointer;
+              outline: none;
+              padding: 0;
+              appearance: none;
+            }
+          }
+
+          .post-index {  
+            background-color: white;
+            border-radius: 5px;
+          }
         }
       }
 
       .map-bg {
-        height: 100%;
         background-image: url('../images/riderhouse_bg_img.jpg');
         background-size: cover;
 
@@ -31,22 +142,115 @@ html {
       }
 
       .user-bg {
-        height: 100%;
         background-image: url('../images/user_bg_img.jpg');
         background-size: cover;
+        min-height: 100%;
 
         .bg-mask {
           padding-top: 50px;
           padding-bottom: 50px;
           background-color: rgba(255, 255, 255, 0.5);
           height: 100%;
+
+          .message-user {
+            background-color: white;
+            border-radius: 10px;
+            &:hover {
+              text-decoration: none;
+              opacity: 0.8;
+              color: #17a2b8;
+              transition-duration: 0.3s;
+            }
+            table {
+              table-layout: fixed;
+              td {
+              word-wrap: break-word;
+              }
+            }
+          }
+          
+          // ユーザー画像
+          .user-img {
+            img {
+              border-radius: 50%;
+              border: 1px solid #ddd;
+              overflow: hidden;
+              background: #000;
+              cursor: pointer;
+              transition-duration: 0.3s;
+            }
+            &:hover{
+              opacity: 0.6;
+              transition-duration: 0.3s;
+            }
+          }
+          
+          // message
+          .message {
+            background-color: #D7EEFF;
+            padding: 10px;
+
+            .balloon-left {
+              position: relative;
+              display: inline-block;
+              margin: 1.5em 0 1.5em 15px;
+              padding: 7px 10px;
+              min-width: 120px;
+              max-width: 100%;
+              color: #555;
+              font-size: 16px;
+              background: white;
+
+              &:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: -30px;
+                margin-top: -15px;
+                border: 15px solid transparent;
+                border-right: 15px solid white;
+              }
+
+              p {
+                margin: 0;
+                padding: 0;
+              }
+            }
+
+            .balloon-right {
+              position: relative;
+              display: inline-block;
+              margin: 1.5em 15px 1.5em 0;
+              padding: 7px 10px;
+              min-width: 120px;
+              max-width: 100%;
+              color: #555;
+              font-size: 16px;
+              background: white;
+
+              &:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 100%;
+                margin-top: -15px;
+                border: 15px solid transparent;
+                border-left: 15px solid white;
+              }
+
+              p {
+                margin: 0;
+                padding: 0;
+              }
+            } 
+          }
         }
       }
 
       .favorite-bg {
-        height: 100%;
         background-image: url('../images/favorite_bg_img.jpg');
         background-size: cover;
+        min-height: 100%;
 
         .bg-mask {
           padding-top: 50px;
@@ -57,9 +261,9 @@ html {
       }
 
       .post-bg {
-        height: 100%;
         background-image: url('../images/post_bg_img.jpg');
         background-size: cover;
+        min-height: 100%;
 
         .bg-mask {
           padding-top: 50px;
@@ -68,13 +272,6 @@ html {
           height: 100%;
         }
       }
-
-      .index-box {
-        width: 240px;
-        height: 330px;
-        margin-bottom: 10px;
-      }
-
       .alert {
         margin: 0;
       }
@@ -82,98 +279,16 @@ html {
   }
 }
 /* table */
-.table th {
-  border-top: none;
-}
-
-.table td {
-  border-top: none;
-  border-bottom: solid 1px white;
-}
-
-.image-box {
-  height: 375px;
-  width: 500px;
-  border: dashed 1px white;
-}
-
-.no-underline td {
-  border-bottom: none;
-}
-
-/* 検索ボックス */
-dl.searchbox {
-  margin-left: 20px;
-  width: 300px;
-  position: relative;
-  background-color: #fff;
-  border-radius: 6px;
-
-  dt input {
-    width: 70%;
-    height: 33px;
-    line-height: 33px;
-    background: none;
-    border: none;
+.table {
+  th {
+    border-top: none;
   }
-
-  dt select {
-    width: 70%;
-    height: 33px;
-    line-height: 33px;
-    background: none;
-    border: none;
+  td {
+    border-top: none;
+    border-bottom: solid 1px white;
   }
-  
-  dd {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    width: 30%;
-  }
-
-  .search-btn {
-    padding: none;
-    display: block;
-    background: #17a2b8;
-    width: 100%;
-    line-height: 30px;
-    border: none;
-    border-radius: 0 6px 6px 0;
-    color: #fff;
-
-    &:hover {
-      background: #0b616e;
-    }
-  }
-  
-  button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    padding: 0;
-    appearance: none;
-  }
-}
-
-// ソートボックス
-dl.sortbox {
-  margin-left: 20px;
-  width: 200px;
-  position: relative;
-  border-radius: 6px;
-
-  dt input {
-    width: 70%;
-    height: 33px;
-    line-height: 33px;
-    background: none;
-    border: none;
-  }
-
-  .sort-btn {
-    display: none;
+  .no-underline td {
+    border-bottom: none;
   }
 }
 
@@ -181,67 +296,5 @@ dl.sortbox {
   display: none;
 }
 
-// message
-.message {
-  background-color: #D7EEFF;
-  padding: 10px;
 
-  .balloon-left {
-    position: relative;
-    display: inline-block;
-    margin: 1.5em 0 1.5em 15px;
-    padding: 7px 10px;
-    min-width: 120px;
-    max-width: 100%;
-    color: #555;
-    font-size: 16px;
-    background: white;
 
-    &:before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: -30px;
-      margin-top: -15px;
-      border: 15px solid transparent;
-      border-right: 15px solid white;
-    }
-
-    p {
-      margin: 0;
-      padding: 0;
-    }
-  }
-
-  .balloon-right {
-    position: relative;
-    display: inline-block;
-    margin: 1.5em 15px 1.5em 0;
-    padding: 7px 10px;
-    min-width: 120px;
-    max-width: 100%;
-    color: #555;
-    font-size: 16px;
-    background: white;
-
-    &:before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 100%;
-      margin-top: -15px;
-      border: 15px solid transparent;
-      border-left: 15px solid white;
-    }
-
-    p {
-      margin: 0;
-      padding: 0;
-    }
-  } 
-}
-
-// post
-.post {
-  border: 1px solid #E6FFE9;
-}

@@ -2,10 +2,29 @@
   <nav class="navbar navbar-expand-lg bg-info">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to 'ライダーハウス登録', new_riderhouse_path, class: 'nav-link text-light'%>
+        <div class="dropdown"> 
+          <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="text-light">ライダーハウス</span>
+          </a>
+          <div class="dropdown-menu">
+            <%= link_to 'ライダーハウス一覧', riderhouses_path, class: 'dropdown-item' %>
+            <%= link_to 'ライダーハウス登録', new_riderhouse_path, class: 'dropdown-item'%>
+            <%= link_to 'お気に入り', favorites_path, class: 'dropdown-item' %>
+          </div>
+        </div>
       </li>
-      <li class="nav-item">
-        <%= link_to 'ライダーハウス一覧', riderhouses_path, class: 'nav-link text-light' %>
+      <li class="nav-item"> 
+        <div class="dropdown"> 
+          <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="text-light">ユーザー</span>
+          </a>
+          <div class="dropdown-menu">
+            <%= link_to 'ユーザー一覧', users_path, class: 'dropdown-item' %>
+            <% if current_user != nil %>
+            <%= link_to 'メッセージルーム', user_messages_path(current_user), class: 'dropdown-item' %>
+          <% end %>
+          </div>
+        </div>
       </li>
       <li class="nav-item">
         <%= link_to 'Google Map & Open Weather Map', index_map_riderhouses_path, class: 'nav-link text-light' %>
@@ -24,22 +43,23 @@
 
     <% if current_user %>
     <ul class="navbar-nav">
-      <li class="nav-item　dropdown"> 
-        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%# もし現在のユーザーに画像があれば、表示する。無ければ,デフォルト画像を表示 %>
-          <% if current_user.present? && current_user.image.url %>    
-            <%= image_tag(current_user.image.url, :size =>'50x50', class: 'rouded-circle') %>
-          <% elsif current_user.present? %>
-            <%= image_tag('/images/user_default.jpeg', :size =>'50x50', class: 'rounded-circle') %>
-          <% end %>
-          <span class="text-light"><%= current_user.name %></span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right">
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-          <%= link_to 'お気に入り', favorites_path, class: 'dropdown-item' %>
-          <%= link_to 'アカウント編集', edit_user_registration_path, class: 'dropdown-item' %>
-          <%= link_to 'プロフィール編集', edit_user_path(current_user), class: 'dropdown-item' %>
-          <%= link_to "アカウント削除", registration_path(resource_name), data: { confirm: "このアカウントを削除してよろしいですか?" }, method: :delete, class: "dropdown-item" %>
+      <li class="nav-item"> 
+        <div class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%# もし現在のユーザーに画像があれば、表示する。無ければ,デフォルト画像を表示 %>
+            <% if current_user.present? && current_user.image.url %>    
+              <%= image_tag(current_user.image.url, :size =>'50x50', class: 'rouded-circle') %>
+            <% elsif current_user.present? %>
+              <%= image_tag('/images/user_default.jpeg', :size =>'50x50', class: 'rounded-circle') %>
+            <% end %>
+            <span class="text-light"><%= current_user.name %></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+            <%= link_to 'アカウント編集', edit_user_registration_path, class: 'dropdown-item' %>
+            <%= link_to 'プロフィール編集', edit_user_path(current_user), class: 'dropdown-item' %>
+            <%= link_to "アカウント削除", registration_path(resource_name), data: { confirm: "このアカウントを削除してよろしいですか?" }, method: :delete, class: "dropdown-item" %>
+          </div>
         </div>
       </li>
     </ul>

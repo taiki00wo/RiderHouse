@@ -8,12 +8,10 @@
           <%= render partial: "riderhouses/show", locals: { @riderhouse => @riderhouse } %>
         </div>
 
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-sm-6">
           <div class="overflow-auto post" style="height:680px;">
             <%# 口コミを表示 %>
-            <div id="post-index">
-              <%= render partial: "posts/create", locals: { @posts => @posts } %>
-            </div>
+            <%= render partial: "posts/create", locals: { @posts => @posts } %>
           </div> 
           <%# 口コミ投稿フォーム %>
           <%= render partial: "posts/form", locals: { @riderhouse => @riderhouse } %>

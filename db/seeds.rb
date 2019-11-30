@@ -16,6 +16,7 @@ gender: '男',
 age: '23',
 favorite_load: 'オロロンライン',
 when_ride: '2018年4月から',
+twitter_id: '@xxxxxxxx',
 image: open("#{Rails.root}/db/images/user_default.jpeg"))
 
 User.create!(
@@ -28,6 +29,7 @@ gender: '男',
 age: '30',
 favorite_load: 'オロロンライン',
 when_ride: '2015年4月から',
+twitter_id: '@xxxxxxxx',
 image: open("#{Rails.root}/db/images/user_default.jpeg"))
 
 User.create!(
@@ -40,6 +42,7 @@ gender: '男',
 age: '30',
 favorite_load: '国道53号線',
 when_ride: '2010年4月から',
+twitter_id: '@xxxxxxxx',
 image: open("#{Rails.root}/db/images/user_default.jpeg"))
 
 User.create!(
@@ -52,6 +55,7 @@ gender: '女',
 age: '26',
 favorite_load: 'ビーナスライン',
 when_ride: '2017年4月から',
+twitter_id: '@xxxxxxxx',
 image: open("#{Rails.root}/db/images/user_default.jpeg"))
 
 
@@ -158,4 +162,9 @@ Favorite.create!(user_id: 3, riderhouse_id: 1)
 Favorite.create!(user_id: 3, riderhouse_id: 8)
 Favorite.create!(user_id: 3, riderhouse_id: 10)
 
-
+Message.create!(content: 'こんにちは', from_id: 1, to_id: 2, room_id: 1)
+Message.create!(content: 'よろしく', from_id: 2, to_id: 1, room_id: 1)
+Message.create!(content: '初めまして', from_id: 2, to_id: 3, room_id: 1)
+Message.create!(content: 'こちらこそ', from_id: 3, to_id: 2, room_id: 1)
+Message.create!(content: 'よろしくお願いします。', from_id: 3, to_id: 1, room_id: 1)
+Message.create!(content: 'こちらこそ', from_id: 1, to_id: 3, room_id: 1)

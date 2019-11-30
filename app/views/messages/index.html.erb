@@ -1,0 +1,48 @@
+<div class='user-bg'>
+  <div class='bg-mask'>
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="overflow-auto" style="height:700px;">
+            <% @users.each do |user| %>
+              <div class="message-user">
+                <%= link_to user_message_path(user, id: user.id), method: :get, remote: true do %>
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <% if user.image? %>
+                          <td><%= image_tag user.image.url, :size =>'50x50', class: 'rounded-circle' %></td>
+                          <td>&nbsp;&nbsp;<%= user.name %></td>
+                        <% else %>
+                          <td><%= image_tag '/images/user_default.jpeg', :size =>'50x50', class: 'rounded-circle' %></td>
+                          <td>&nbsp;&nbsp;<%= user.name %></td>
+                        <% end %>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <% messages = Message.new().find_messages(current_user.id, user.id).order(:id) %>
+                        <td><%= messages.last.content%></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-lg-6">
+        <%# メッセージを表示 %>
+          <div class="overflow-auto message" style="height:500px;">
+            <div id="message-index">
+              <%= render partial: "messages/message", 
+              locals: { @messages => @messages } %>
+            </div>
+          </div>
+          <%# メッセージフォーム %>
+          <%= render partial: "messages/form", locals: { @user => @user } %>
+      </div>
+    </div>
+  </div>
+</div>
+

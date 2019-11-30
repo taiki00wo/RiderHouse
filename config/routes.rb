@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   #message
   resources :user do
-    resources :messages, only: [:new, :create, :show]
+    resources :messages, only: [:index, :new, :create, :show]
   end
 
   # favorite
