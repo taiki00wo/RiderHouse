@@ -67,7 +67,6 @@ class MessagesController < ApplicationController
     @message.room_id = room.id
     @message.save!
     @messages = Message.where(room_id: @message.room_id)
-    # byebug
   end
 
   def show

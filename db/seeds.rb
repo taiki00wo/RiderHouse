@@ -162,9 +162,14 @@ Favorite.create!(user_id: 3, riderhouse_id: 1)
 Favorite.create!(user_id: 3, riderhouse_id: 8)
 Favorite.create!(user_id: 3, riderhouse_id: 10)
 
+Room.create!(first_user_id: 1, second_user_id: 2)
+Room.create!(first_user_id: 2, second_user_id: 3)
+Room.create!(first_user_id: 1, second_user_id: 3)
+
 Message.create!(content: 'こんにちは', from_id: 1, to_id: 2, room_id: 1)
 Message.create!(content: 'よろしく', from_id: 2, to_id: 1, room_id: 1)
-Message.create!(content: '初めまして', from_id: 2, to_id: 3, room_id: 1)
-Message.create!(content: 'こちらこそ', from_id: 3, to_id: 2, room_id: 1)
-Message.create!(content: 'よろしくお願いします。', from_id: 3, to_id: 1, room_id: 1)
-Message.create!(content: 'こちらこそ', from_id: 1, to_id: 3, room_id: 1)
+Message.create!(content: '初めまして', from_id: 2, to_id: 3, room_id: 2)
+Message.create!(content: 'こちらこそ', from_id: 3, to_id: 2, room_id: 2)
+Message.create!(content: 'よろしくお願いします。', from_id: 3, to_id: 1, room_id: 3)
+Message.create!(content: 'こちらこそ', from_id: 1, to_id: 3, room_id: 3)
+
