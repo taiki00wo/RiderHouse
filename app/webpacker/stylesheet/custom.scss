@@ -2,6 +2,11 @@ html {
   height: 100%;
   body {
     height: 100%;
+
+    .dropdown:hover > .dropdown-menu{
+      display: block;
+    }
+
     main {
       height: 100%;
       .riderhouse-bg {
@@ -132,6 +137,7 @@ html {
       .map-bg {
         background-image: url('../images/riderhouse_bg_img.jpg');
         background-size: cover;
+        min-height: 100%;
 
         .bg-mask {
           padding-top: 50px;
@@ -257,6 +263,19 @@ html {
           padding-bottom: 50px;
           background-color: rgba(255, 255, 255, 0.5);
           height: 100%;
+
+          .riderhouse-img {
+            img {
+              border: 1px solid #ddd;
+              transition-duration: 0.5s;
+              cursor: pointer;
+              &:hover {
+                box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+                transform: translateY(-10px);
+                transition-duration: 0.5s;
+              }
+            }
+          }
         }
       }
 

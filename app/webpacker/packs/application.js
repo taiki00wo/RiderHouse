@@ -13,6 +13,7 @@ require('popper.js')
 
 require('../stylesheet/application')
 require('../javascript/openweathermap')
+require('../javascript/animation')
 
 require.context('../images', true, /\.(png|jpg|jpeg|svg)$/);
 

@@ -19,22 +19,20 @@
               <div class="table-responsiv">
               　<table class="table">
                   <tbody>
-                    <tr>
-                      
-                        <% if r.image? %>
-                          <th>
-                            <div class="riderhouse-img">
-                              <%= link_to image_tag(r.image.url, :size =>'240x180'), riderhouse_path(r) %>
-                            </div>
-                          </th>
-                        <% else %>
-                          <th>
-                            <div class="riderhouse-img">  
-                              <%= link_to image_tag('/images/riderhouse_default.png', :size =>'240x180'), riderhouse_path(r) %>
-                            </div>  
-                          </th>
-                        <% end %>
-                    
+                    <tr>      
+                      <% if r.image? %>
+                        <th>
+                          <div class="riderhouse-img">
+                            <%= link_to image_tag(r.image.url, :size =>'240x180'), riderhouse_path(r) %>
+                          </div>
+                        </th>
+                      <% else %>
+                        <th>
+                          <div class="riderhouse-img">  
+                            <%= link_to image_tag('/images/riderhouse_default.png', :size =>'240x180'), riderhouse_path(r) %>
+                          </div>  
+                        </th>
+                      <% end %>
                     </tr>
 
                     <tr>
