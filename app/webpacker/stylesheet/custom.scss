@@ -9,6 +9,66 @@ html {
 
     main {
       height: 100%;
+
+      .home-bg {
+        background-image: url('../images/home_bg_img.jpg');
+        background-size: cover;
+        min-height: 100%;
+
+        .outer {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          padding: 15px 30px;
+          background: rgba(0,0,0,0.4);
+          color: #fff;
+          text-align: center;
+          height: 300px;
+          width: 600px;
+
+          .inner {
+
+            .title {
+              position: relative;
+              top: 40px;
+              font-size: 250%;
+              font-family: Impact; 
+            }
+
+            .description {
+              position: relative;
+              top: 40px;
+              font-size: 130%;
+
+            }
+
+            .button {
+              position: relative;
+              top: 80px;
+
+              .btn-gradient-3d-orange {
+                display: inline-block;
+                padding: 0.5em 1em;
+                text-decoration: none;
+                border-radius: 4px;
+                color: #ffffff;
+                background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+                border-bottom: solid 3px #c58668;
+              
+                &:active {
+                  -webkit-transform: translateY(4px);
+                  transform: translateY(4px);
+                  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+                  border-bottom: none;
+                }
+              }
+            }
+          }
+        }
+      }
+
       .riderhouse-bg {
         background-image: url('../images/riderhouse_bg_img.jpg');
         background-size: cover;

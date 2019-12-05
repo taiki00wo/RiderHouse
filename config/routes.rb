@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'riderhouses#index'
+  # root to: 'riderhouses#index'
+  root to: 'homes#top'
 
   #user
   devise_for :users
